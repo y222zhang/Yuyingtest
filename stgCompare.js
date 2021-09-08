@@ -135,20 +135,25 @@ $(function() {
 		doc.text("The comparison of the average spawning stock biomass (SSB) in the last 5 years of the 20-year management period.",50,700);
 
 		doc.addPage();
-		doc.addImage(barRotationChart_1Img, 'jpg', 40, 50, 500, 320, undefined, 'none');
+		doc.addImage(barRotationChart_1Img, 'jpg', 60, 50, 475, 320, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the median catches for Federal For-hire and Private Angling Sectors in the first",50,390);
+		doc.text("The comparison of the median catches for Federal For-hire and Private Angling Sectors in the first.",50,390);
 		doc.text("    and last 5 years of the 20-year management period.",50,400);
-		doc.addImage(stateCatchFirst_ChartImg, 'jpg', 40, 450 ,500, 320, undefined, 'none');
+		doc.addImage(stateCatchFirst_ChartImg, 'jpg', 60, 450 ,475, 320, undefined, 'none');
 		doc.setFontSize(10);
 		doc.text("The comparison of the median states’ Private Angling catches in the first 5 years.",50,790);
 
 		doc.addPage();
-		doc.addImage(stateCatchLast_ChartImg, 'jpg', 40, 50, 550, 370, undefined, 'none');
-		doc.addImage(stateSeasFirst_ChartImg, 'jpg', 40, 450 ,550, 370, undefined, 'none');
+		doc.addImage(stateCatchLast_ChartImg, 'jpg', 60, 50, 475, 320, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the median states’ Private Angling catches in the last 5 years of the 20-year management period.",50,390);
+		doc.addImage(stateSeasFirst_ChartImg, 'jpg', 60, 440 ,475, 320, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the median states’ Private Angling season lengths in the first 5 years.",50,780);
+		doc.text("Note: The season length is estimated based on the quota and the average catch rate in 2018.",50,790);
 
 		doc.addPage();
-		doc.addImage(stateSeasLast_ChartImg, 'jpg', 40, 50, 550, 370, undefined, 'none');
+		doc.addImage(stateSeasLast_ChartImg, 'jpg', 60, 50, 475, 320, undefined, 'none');
 		doc.addImage(catchFirstChartImg, 'jpg', 120, 450 ,350, 350, undefined, 'none');
 
 		doc.addPage();
