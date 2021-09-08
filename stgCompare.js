@@ -68,6 +68,7 @@ $(function() {
 		doc.addImage( catchChartImg, 'jpg', 50, 180,450, 350, undefined, 'none');
 		doc.setFontSize(10);
 		doc.text("The comparison of the median total catches during the projection period.",50,550);
+
 		doc.addPage();
 		doc.addImage(SSBGulfChartImg, 'jpg', 50, 50, 450, 350, undefined, 'none');
 		doc.setFontSize(10);
@@ -75,6 +76,7 @@ $(function() {
 		doc.addImage(catch20ChartImg, 'jpg', 120, 470 ,350, 280, undefined, 'none');
 		doc.setFontSize(10);
 		doc.text("The comparison of the 20-year catches.",50,770);
+
 		doc.addPage();
 		doc.addImage(annualCatch20ChartImg, 'jpg', 120, 50, 350, 280, undefined, 'none');
 		doc.setFontSize(10);
@@ -83,6 +85,7 @@ $(function() {
 		doc.addImage(terminalChartImg, 'jpg', 120, 410 ,350, 280, undefined, 'none');
 		doc.setFontSize(10);
 		doc.text("The comparison of the spawning stock biomass after the management (Terminal SSB).",50,710);
+
 		doc.addPage();
 		doc.addImage(lowestSSBsImg, 'jpg', 120, 50, 350, 280, undefined, 'none');
 		doc.setFontSize(10);
@@ -91,24 +94,38 @@ $(function() {
 		doc.setFontSize(10);
 		doc.text("The comparison of the median percentage of time that the fishery achieves the “Green” stock status during the management period.",50,700);
 		doc.text("Note: “Green” indicates the desired stock status in the long term.",50,710);
+
 		doc.addPage();
 		doc.addImage(radarChart_1Img, 'jpg', 50, 50, 450, 350, undefined, 'none');
 		doc.setFontSize(10);
 		doc.text("The comparison of the general performance measures during the 20-Year Management.",50,420);
 		doc.addImage(totalDsicardsChartImg, 'jpg', 120, 470, 350, 280, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the general performance measures during the 20-Year Management.",50,770);
+		doc.text("The comparison of the 20-year discards.",50,770);
 
 		doc.addPage();
-		doc.addImage(varDiscardsChartImg, 'jpg', 120, 50, 350, 350, undefined, 'none');
-		doc.setFontSize(18);
+		doc.addImage(varDiscardsChartImg, 'jpg', 120, 50, 350, 280, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the 20-year annual discard variations.",50,350);
+		doc.text("Note: CV means Coefficient of Variation.",50,360);
+
+		doc.setFontSize(20);
 		doc.text('Other Detailed Figures', 50, 440);
-		doc.setFontSize(12);
-		doc.text('Section 2: Sector Comparison', 50, 460);
-		doc.addImage( commCatchChartImg, 'jpg', 50, 480,490, 400, undefined, 'none');
+		doc.setFontSize(16);
+		doc.text('Section 2: Sector Comparison', 50, 470);
 
 		doc.addPage();
-		doc.addImage(fedCatchChartImg, 'jpg', 50, 50, 490, 400, undefined, 'none');
+		doc.addImage(commCatchChartImg, 'jpg', 50, 50,450, 350, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the median Commercial catches during the projection period.",50,420);
+		doc.addImage(fedCatchChartImg, 'jpg', 50, 470, 450, 350, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the median For-hire catches during the projection period.",50,840);
+
+
+
+
+		doc.addPage();
 		doc.addImage(privateCatchChartImg, 'jpg', 50, 450, 490, 400, undefined, 'none');
 
 		doc.addPage();
