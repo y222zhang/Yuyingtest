@@ -93,7 +93,7 @@ $(function() {
 		doc.addImage(percentGreenChartImg, 'jpg', 120, 400 ,350, 280, undefined, 'none');
 		doc.setFontSize(10);
 		doc.text("The comparison of the median percentage of time that the fishery achieves the “Green” stock status during",50,700);
-		doc.text("the management period.",50,710);
+		doc.text("    the management period.",50,710);
 		doc.text("Note: “Green” indicates the desired stock status in the long term.",50,720);
 
 		doc.addPage();
@@ -133,10 +133,15 @@ $(function() {
 		doc.addImage(SSBGulfLast_ChartImg, 'jpg', 120, 400 ,350, 280, undefined, 'none');
 		doc.setFontSize(10);
 		doc.text("The comparison of the average spawning stock biomass (SSB) in the last 5 years of the 20-year management period.",50,700);
-		
+
 		doc.addPage();
-		doc.addImage(barRotationChart_1Img, 'jpg', 40, 50, 550, 370, undefined, 'none');
-		doc.addImage(stateCatchFirst_ChartImg, 'jpg', 40, 450 ,550, 370, undefined, 'none');
+		doc.addImage(barRotationChart_1Img, 'jpg', 40, 50, 500, 320, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the median catches for Federal For-hire and Private Angling Sectors in the first",50,390);
+		doc.text("    and last 5 years of the 20-year management period.",50,400);
+		doc.addImage(stateCatchFirst_ChartImg, 'jpg', 40, 450 ,500, 320, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the median states’ Private Angling catches in the first 5 years.",50,790);
 
 		doc.addPage();
 		doc.addImage(stateCatchLast_ChartImg, 'jpg', 40, 50, 550, 370, undefined, 'none');
