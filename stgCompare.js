@@ -92,8 +92,9 @@ $(function() {
 		doc.text("The comparison of the lowest spawning stock biomass during the management period (Lowest SSB).",50,350);
 		doc.addImage(percentGreenChartImg, 'jpg', 120, 400 ,350, 280, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the median percentage of time that the fishery achieves the “Green” stock status during the management period.",50,700);
-		doc.text("Note: “Green” indicates the desired stock status in the long term.",50,710);
+		doc.text("The comparison of the median percentage of time that the fishery achieves the “Green” stock status during",50,700);
+		doc.text("the management period.",50,710);
+		doc.text("Note: “Green” indicates the desired stock status in the long term.",50,720);
 
 		doc.addPage();
 		doc.addImage(radarChart_1Img, 'jpg', 60, 50, 450, 350, undefined, 'none');
@@ -124,11 +125,15 @@ $(function() {
 		doc.text("The comparison of the median For-hire catches during the projection period.",50,390);
 		doc.addImage(privateCatchChartImg, 'jpg', 80, 440, 420, 320, undefined, 'none');
 		doc.text("The comparison of the median Private Angling catches during the projection period.",50,780);
-		
-		doc.addPage();
-		doc.addImage(SSBGulfFirstChartImg, 'jpg', 120, 50, 350, 350, undefined, 'none');
-		doc.addImage(SSBGulfLast_ChartImg, 'jpg', 120, 450 ,350, 350, undefined, 'none');
 
+		doc.addPage();
+		doc.addImage(SSBGulfFirstChartImg, 'jpg', 120, 50, 350, 280, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the average spawning stock biomass (SSB) in the first 5 years.",50,350);
+		doc.addImage(SSBGulfLast_ChartImg, 'jpg', 120, 400 ,350, 280, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the average spawning stock biomass (SSB) in the last 5 years of the 20-year management period.",50,700);
+		
 		doc.addPage();
 		doc.addImage(barRotationChart_1Img, 'jpg', 40, 50, 550, 370, undefined, 'none');
 		doc.addImage(stateCatchFirst_ChartImg, 'jpg', 40, 450 ,550, 370, undefined, 'none');
