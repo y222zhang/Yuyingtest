@@ -65,17 +65,17 @@ $(function() {
 		doc.text('Essential Figures', 50, 120);
 		doc.setFontSize(16);
 		doc.text('Section 1: Basic Comparison', 50, 150);
-		doc.addImage( catchChartImg, 'jpg', 50, 180,450, 350, undefined, 'none');
+		doc.addImage( catchChartImg, 'jpg', 50, 180,400, 320, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the median total catches during the projection period.",50,550);
+		doc.text("The comparison of the median total catches during the projection period.",50,520);
 
 		doc.addPage();
-		doc.addImage(SSBGulfChartImg, 'jpg', 50, 50, 450, 350, undefined, 'none');
+		doc.addImage(SSBGulfChartImg, 'jpg', 50, 50, 400, 320, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the median total spawning stock biomass (SSB) during the projection period.",50,420);
-		doc.addImage(catch20ChartImg, 'jpg', 120, 470 ,350, 280, undefined, 'none');
+		doc.text("The comparison of the median total spawning stock biomass (SSB) during the projection period.",50,390);
+		doc.addImage(catch20ChartImg, 'jpg', 120, 440 ,350, 280, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the 20-year catches.",50,770);
+		doc.text("The comparison of the 20-year catches.",50,740);
 
 		doc.addPage();
 		doc.addImage(annualCatch20ChartImg, 'jpg', 120, 50, 350, 280, undefined, 'none');
@@ -110,22 +110,23 @@ $(function() {
 		doc.text("Note: CV means Coefficient of Variation.",50,360);
 
 		doc.setFontSize(20);
-		doc.text('Other Detailed Figures', 50, 440);
+		doc.text('Other Detailed Figures', 50, 420);
 		doc.setFontSize(16);
-		doc.text('Section 2: Sector Comparison', 50, 470);
+		doc.text('Section 2: Sector Comparison', 50, 450);
+
+		doc.addImage(commCatchChartImg, 'jpg', 50, 480,400, 320, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the median Commercial catches during the projection period.",50,820);
+
+
+
 
 		doc.addPage();
-		doc.addImage(commCatchChartImg, 'jpg', 50, 50,450, 350, undefined, 'none');
-		doc.setFontSize(10);
-		doc.text("The comparison of the median Commercial catches during the projection period.",50,420);
+
 		doc.addImage(fedCatchChartImg, 'jpg', 50, 470, 450, 350, undefined, 'none');
 		doc.setFontSize(10);
 		doc.text("The comparison of the median For-hire catches during the projection period.",50,840);
 
-
-
-
-		doc.addPage();
 		doc.addImage(privateCatchChartImg, 'jpg', 50, 450, 490, 400, undefined, 'none');
 
 		doc.addPage();
