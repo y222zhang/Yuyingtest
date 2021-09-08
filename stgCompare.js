@@ -72,22 +72,29 @@ $(function() {
 		doc.addImage(SSBGulfChartImg, 'jpg', 50, 50, 450, 350, undefined, 'none');
 		doc.setFontSize(10);
 		doc.text("The comparison of the median total spawning stock biomass (SSB) during the projection period.",50,420);
-		doc.addImage(catch20ChartImg, 'jpg', 120, 470 ,350, 300, undefined, 'none');
+		doc.addImage(catch20ChartImg, 'jpg', 120, 470 ,350, 280, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the 20-year catches.",50,790);
+		doc.text("The comparison of the 20-year catches.",50,770);
 		doc.addPage();
-		doc.addImage(annualCatch20ChartImg, 'jpg', 120, 50, 350, 300, undefined, 'none');
+		doc.addImage(annualCatch20ChartImg, 'jpg', 120, 50, 350, 280, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the 20-year annual catch variations.",50,370);
-		doc.text("Note: CV means Coefficient of Variation.",50,380);
-		doc.addImage(terminalChartImg, 'jpg', 120, 430 ,350, 300, undefined, 'none');
+		doc.text("The comparison of the 20-year annual catch variations.",50,350);
+		doc.text("Note: CV means Coefficient of Variation.",50,360);
+		doc.addImage(terminalChartImg, 'jpg', 120, 410 ,350, 280, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the spawning stock biomass after the management (Terminal SSB).",50,750);
+		doc.text("The comparison of the spawning stock biomass after the management (Terminal SSB).",50,710);
 		doc.addPage();
-		doc.addImage(lowestSSBsImg, 'jpg', 120, 50, 350, 350, undefined, 'none');
-		doc.addImage(percentGreenChartImg, 'jpg', 120, 450 ,350, 350, undefined, 'none');
+		doc.addImage(lowestSSBsImg, 'jpg', 120, 50, 350, 280, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the spawning stock biomass after the management (Terminal SSB).",50,350);
+		doc.addImage(percentGreenChartImg, 'jpg', 120, 400 ,350, 280, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the spawning stock biomass after the management (Terminal SSB).",50,700);
+		doc.addPage();
 
-		doc.addPage();
+
+
+
 		doc.addImage(radarChart_1Img, 'jpg', 50, 50, 500, 350, undefined, 'none');
 		doc.addImage(totalDsicardsChartImg, 'jpg', 120, 450, 350, 350, undefined, 'none');
 
