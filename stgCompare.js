@@ -86,17 +86,18 @@ $(function() {
 		doc.addPage();
 		doc.addImage(lowestSSBsImg, 'jpg', 120, 50, 350, 280, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the spawning stock biomass after the management (Terminal SSB).",50,350);
+		doc.text("The comparison of the lowest spawning stock biomass during the management period (Lowest SSB).",50,350);
 		doc.addImage(percentGreenChartImg, 'jpg', 120, 400 ,350, 280, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the spawning stock biomass after the management (Terminal SSB).",50,700);
+		doc.text("The comparison of the median percentage of time that the fishery achieves the “Green” stock status during the management period.",50,700);
+		doc.text("Note: “Green” indicates the desired stock status in the long term.",50,710);
 		doc.addPage();
-
-
-
-
-		doc.addImage(radarChart_1Img, 'jpg', 50, 50, 500, 350, undefined, 'none');
-		doc.addImage(totalDsicardsChartImg, 'jpg', 120, 450, 350, 350, undefined, 'none');
+		doc.addImage(radarChart_1Img, 'jpg', 50, 50, 450, 350, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the general performance measures during the 20-Year Management.",50,420);
+		doc.addImage(totalDsicardsChartImg, 'jpg', 120, 470, 350, 280, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the general performance measures during the 20-Year Management.",50,770);
 
 		doc.addPage();
 		doc.addImage(varDiscardsChartImg, 'jpg', 120, 50, 350, 350, undefined, 'none');
