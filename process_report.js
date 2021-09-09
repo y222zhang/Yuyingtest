@@ -389,27 +389,38 @@ $(function() {
 			//Essential Figures
 				doc.setFontSize(20);
 				doc.text("Essential Figures:",50 ,225);
-				doc.addImage(totalCatchImgData, 'jpg', 50, 260, 500, 400, undefined, 'none');
+				doc.addImage(totalCatchImgData, 'jpg', 50, 260, 500, 380, undefined, 'none');
         doc.setFontSize(10);
-        doc.text("The dynamics of the median total catch (upper) and the median total spawning stock biomass (SSB; lower)",50,680);
-        doc.text("    during the projection period.",50,690);
+        doc.text("The dynamics of the median total catch (upper) and the median total spawning stock biomass (SSB; lower)",50,660);
+        doc.text("    during the projection period.",50,670);
 
         doc.addPage();
-				doc.addImage(catchPlotImgData, 'jpg', 50,50,500,320,undefined, 'none');
+				doc.addImage(catchPlotImgData, 'jpg', 60,50,480,320,undefined, 'none');
         doc.setFontSize(10);
         doc.text("The dynamics of the median catches for the Commercial Sector, the For-hire Component, and the Private Angling",50,390);
         doc.text("    Component during the projection period.",50,400);
-				doc.addImage(ssbPlotImgData, 'jpg', 50,450,500,320,undefined, 'none');
+				doc.addImage(ssbPlotImgData, 'jpg', 60,450,480,320,undefined, 'none');
         doc.setFontSize(10);
-        doc.text("The dynamics of the median spawning stock biomass (SSB) in the East Gulf and West Gulf during the projection period.",50,790);
+        doc.text("The dynamics of the median spawning stock biomass (SSB) in the East Gulf and West Gulf during the projection",50,790);
+        doc.text("    period.",50,800);
 
         doc.addPage();
-				doc.addImage(commCatchPlotImgData, 'jpg', 50,50,500,350,undefined, 'none');
-				doc.addImage(forHireCatchPlotImgData, 'jpg', 50,450,500,350,undefined, 'none');
+				doc.addImage(commCatchPlotImgData, 'jpg', 60,50,480,320,undefined, 'none');
+        doc.setFontSize(10);
+        doc.text("The dynamics of the median Commercial catches in the East Gulf and West Gulf during the projection period.",50,390);
+				doc.addImage(forHireCatchPlotImgData, 'jpg', 60,440,480,320,undefined, 'none');
+        doc.setFontSize(10);
+        doc.text("The dynamics of the median For-hire catches in the East Gulf and West Gulf during the projection period.",50,780);
+
 				doc.addPage();
-				doc.addImage(privateCatchPlotImgData, 'jpg', 50,50,500,350,undefined, 'none');
-				doc.addImage(fedForhireLengthImgData, 'jpg', 50,450,500,350,undefined, 'none');
-				doc.addPage();
+				doc.addImage(privateCatchPlotImgData, 'jpg', 60,50,480,320,undefined, 'none');
+        doc.setFontSize(10);
+        doc.text("The dynamics of the median Private Angling catches in the East Gulf and West Gulf during the projection period.",50,390);
+				doc.addImage(fedForhireLengthImgData, 'jpg', 60,440,480,320,undefined, 'none');
+        doc.setFontSize(10);
+        doc.text("The estimated median lengths of the fishing seasons for the Federal For-hire component and the variations during the projection period.",50,780);
+
+        doc.addPage();
 				doc.addImage(statePrivLengthImgData, 'jpg', 50,50,500,350,undefined, 'none');
 				doc.addImage(kobeChart1ImgData, 'jpg', 50,450,500,350,undefined, 'none');
 				doc.addPage();
