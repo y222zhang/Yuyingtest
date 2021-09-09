@@ -395,7 +395,7 @@ $(function() {
         doc.text("    during the projection period.",50,670);
 
         doc.addPage();
-				doc.addImage(catchPlotImgData, 'jpg', 60,50,480,320,undefined, 'none');
+				doc.addImage(catchPlotImgData, 'jpg', 60,50,500,320,undefined, 'none');
         doc.setFontSize(10);
         doc.text("The dynamics of the median catches for the Commercial Sector, the For-hire Component, and the Private Angling",50,390);
         doc.text("    Component during the projection period.",50,400);
@@ -418,13 +418,28 @@ $(function() {
         doc.text("The dynamics of the median Private Angling catches in the East Gulf and West Gulf during the projection period.",50,390);
 				doc.addImage(fedForhireLengthImgData, 'jpg', 60,440,480,320,undefined, 'none');
         doc.setFontSize(10);
-        doc.text("The estimated median lengths of the fishing seasons for the Federal For-hire component and the variations during the projection period.",50,780);
+        doc.text("The estimated median lengths of the fishing seasons for the Federal For-hire component and the variations",50,780);
+        doc.text("    during the projection period.",50,790);
+        doc.text("Note: The season length is estimated based on the quota and the average catch rate in 2018.",50,800);
 
         doc.addPage();
-				doc.addImage(statePrivLengthImgData, 'jpg', 50,50,500,350,undefined, 'none');
-				doc.addImage(kobeChart1ImgData, 'jpg', 50,450,500,350,undefined, 'none');
-				doc.addPage();
-				doc.addImage(recruitmentPlotImgData, 'jpg', 50,50,500,350,undefined, 'none');
+				doc.addImage(statePrivLengthImgData, 'jpg', 60,50,480,320,undefined, 'none');
+        doc.setFontSize(10);
+        doc.text("The estimated median season lengths for the Private Angling component in each state during the projection period.",50,390);
+        doc.text("Note: The season length is estimated based on the quota and the average catch rate in 2018.",50,400);
+        doc.addImage(kobeChart1ImgData, 'jpg', 60,450,480,320,undefined, 'none');
+        doc.setFontSize(10);
+        doc.text("Kobe plot with median fishing mortality ratio (relative to F<sub>SPR26%</sub>) and median spawning biomass ratio",50,790);
+        doc.text("    (relative to SSB<sub>SPR26%</sub>). The Kobe plot is divided into four panels: The red panel (upper left)",50,800);
+        doc.text("    corresponds to the “overfished and overfishing phase” area. The light green panel (lower right) is the “no",50,810);
+        doc.text("    risk” area. The orange panel (lower left) corresponds to the “overfished, but not overfishing” area. The",50,820);
+        doc.text("    olive-green panel (upper right) is the “overfishing, but no overfished” area. This Kobe plot characterizes",50,830);
+        doc.text("    the mediate situations. Blue circles represent the annual trajectory of the Gulf of Mexico red snapper fishery",50,840);
+        doc.text("    over time.",50,850);
+        
+        doc.addPage();
+				doc.addImage(recruitmentPlotImgData, 'jpg', 60,50,480,320,undefined, 'none');
+
 			//Other Detailed Figures
 				doc.addPage();
 				doc.text("Other Detailed Figures:",50 ,120);
