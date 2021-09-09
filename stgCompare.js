@@ -99,7 +99,7 @@ $(function() {
 		doc.addPage();
 		doc.addImage(radarChart_1Img, 'jpg', 60, 50, 450, 350, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the general performance measures during the 20-Year Management.",50,420);
+		doc.text("The comparison of the general performance measures during the 20-Year Management.",50,400);
 		doc.addImage(totalDsicardsChartImg, 'jpg', 120, 470, 350, 280, undefined, 'none');
 		doc.setFontSize(10);
 		doc.text("The comparison of the 20-year discards.",50,770);
@@ -132,7 +132,8 @@ $(function() {
 		doc.text("The comparison of the average spawning stock biomass (SSB) in the first 5 years.",50,350);
 		doc.addImage(SSBGulfLast_ChartImg, 'jpg', 120, 400 ,350, 280, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the average spawning stock biomass (SSB) in the last 5 years of the 20-year management period.",50,700);
+		doc.text("The comparison of the average spawning stock biomass (SSB) in the last 5 years of the 20-year management",50,700);
+		doc.text("    period.",50,710);
 
 		doc.addPage();
 		doc.addImage(barRotationChart_1Img, 'jpg', 80, 50, 450, 320, undefined, 'none');
@@ -161,7 +162,7 @@ $(function() {
 		doc.text("Note: The season length is estimated based on the quota and the average catch rate in 2018.",50,410);
 		doc.addImage(catchFirstChartImg, 'jpg', 120, 460 ,350, 280, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the total catches in the first 5 years.",50,390);
+		doc.text("The comparison of the total catches in the first 5 years.",50,760);
 
 		doc.addPage();
 		doc.addImage(catchLastChartImg, 'jpg', 120, 50, 350, 280, undefined, 'none');
@@ -179,11 +180,11 @@ $(function() {
 		doc.text('Section 3: Comparison between and within Sectors', 50, 440);
 		doc.addImage(commRadarChartImg, 'jpg', 60, 470,450, 350, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the Commercial Sector performance measures during the 20-Year Management.",50,840);
+		doc.text("The comparison of the Commercial Sector performance measures during the 20-Year Management.",50,820);
 		doc.addPage();
 		doc.addImage(recrRadarChartImg, 'jpg', 60, 50, 450, 350, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the Recreational Sector performance measures during the 20-Year Management.",50,420);
+		doc.text("The comparison of the Recreational Sector performance measures during the 20-Year Management.",50,400);
 		//Show inputs for each scenario
 		doc.addPage();
 
