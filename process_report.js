@@ -360,7 +360,7 @@ $(function() {
 				var privateChart1ImgData = privateChart1.getDataURL();
 				var fChart1ImgData = fChart1.getDataURL();
 				var ssbEChart1ImgData = ssbEChart1.getDataURL();
-      	    	var ssbWChart1ImgData = ssbWChart1.getDataURL();
+      	var ssbWChart1ImgData = ssbWChart1.getDataURL();
 				var ssbGulfChartImgData = ssbGulfChart.getDataURL();
 				var alCatchPlotImgData = alCatchPlot.getDataURL();
 				var alSeasonPlotImgData = alSeasonPlot.getDataURL();
@@ -374,12 +374,12 @@ $(function() {
 				var txSeasonPlotImgData = txSeasonPlot.getDataURL();
 
 				var colorChartImgData = colorChart.getDataURL();
-      	    	var ruleChartImgData = ruleChart.getDataURL();
+      	var ruleChartImgData = ruleChart.getDataURL();
 
 				var doc = new jsPDF('p', 'pt', 'a4', false);
 
       		    var pageHeight= doc.internal.pageSize.height;
-      			doc.setFontSize(24);
+      	doc.setFontSize(24);
 				doc.text('MSE Report', 200, 80);
 				doc.setFontSize(12);
 				doc.text("Scenario: "+ info.scenario,50,120);
@@ -388,18 +388,22 @@ $(function() {
 				doc.text("Notes: " + info.description, 50, 165);
 			//Essential Figures
 				doc.setFontSize(20);
-				doc.text("Essential Figures:",50 ,250);
-				doc.addImage(totalCatchImgData, 'jpg', 50, 300,500, 400, undefined, 'none');
-        doc.setFontSize(12);
-        doc.text("The dynamics of the median total catch (upper) and the median total spawning stock biomass (SSB; lower) during the projection period.",50,720);
-				doc.addPage();
+				doc.text("Essential Figures:",50 ,225);
+				doc.addImage(totalCatchImgData, 'jpg', 50, 260, 500, 400, undefined, 'none');
+        doc.setFontSize(10);
+        doc.text("The dynamics of the median total catch (upper) and the median total spawning stock biomass (SSB; lower)",50,680);
+        doc.text("    during the projection period.",50,690);
+
+        doc.addPage();
 				doc.addImage(catchPlotImgData, 'jpg', 50,50,500,320,undefined, 'none');
-        doc.setFontSize(12);
-        doc.text("The dynamics of the median catches for the Commercial Sector, the For-hire Component, and the Private Angling Component during the projection period.",50,390);
+        doc.setFontSize(10);
+        doc.text("The dynamics of the median catches for the Commercial Sector, the For-hire Component, and the Private Angling",50,390);
+        doc.text("    Component during the projection period.",50,400);
 				doc.addImage(ssbPlotImgData, 'jpg', 50,450,500,320,undefined, 'none');
-        doc.setFontSize(12);
+        doc.setFontSize(10);
         doc.text("The dynamics of the median spawning stock biomass (SSB) in the East Gulf and West Gulf during the projection period.",50,790);
-				doc.addPage();
+
+        doc.addPage();
 				doc.addImage(commCatchPlotImgData, 'jpg', 50,50,500,350,undefined, 'none');
 				doc.addImage(forHireCatchPlotImgData, 'jpg', 50,450,500,350,undefined, 'none');
 				doc.addPage();

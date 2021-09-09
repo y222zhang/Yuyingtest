@@ -135,40 +135,55 @@ $(function() {
 		doc.text("The comparison of the average spawning stock biomass (SSB) in the last 5 years of the 20-year management period.",50,700);
 
 		doc.addPage();
-		doc.addImage(barRotationChart_1Img, 'jpg', 60, 50, 475, 320, undefined, 'none');
+		doc.addImage(barRotationChart_1Img, 'jpg', 80, 50, 450, 320, undefined, 'none');
 		doc.setFontSize(10);
 		doc.text("The comparison of the median catches for Federal For-hire and Private Angling Sectors in the first.",50,390);
 		doc.text("    and last 5 years of the 20-year management period.",50,400);
-		doc.addImage(stateCatchFirst_ChartImg, 'jpg', 60, 450 ,475, 320, undefined, 'none');
+		doc.addImage(stateCatchFirst_ChartImg, 'jpg', 80, 450 ,450, 320, undefined, 'none');
 		doc.setFontSize(10);
 		doc.text("The comparison of the median states’ Private Angling catches in the first 5 years.",50,790);
 
 		doc.addPage();
-		doc.addImage(stateCatchLast_ChartImg, 'jpg', 60, 50, 475, 320, undefined, 'none');
+		doc.addImage(stateCatchLast_ChartImg, 'jpg', 80, 50, 450, 320, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the median states’ Private Angling catches in the last 5 years of the 20-year management period.",50,390);
-		doc.addImage(stateSeasFirst_ChartImg, 'jpg', 60, 440 ,475, 320, undefined, 'none');
+		doc.text("The comparison of the median states’ Private Angling catches in the last 5 years of the 20-year management",50,390);
+		doc.text("    period.",50,400);
+		doc.addImage(stateSeasFirst_ChartImg, 'jpg', 80, 450 ,450, 320, undefined, 'none');
 		doc.setFontSize(10);
-		doc.text("The comparison of the median states’ Private Angling season lengths in the first 5 years.",50,780);
-		doc.text("Note: The season length is estimated based on the quota and the average catch rate in 2018.",50,790);
+		doc.text("The comparison of the median states’ Private Angling season lengths in the first 5 years.",50,790);
+		doc.text("Note: The season length is estimated based on the quota and the average catch rate in 2018.",50,800);
 
 		doc.addPage();
-		doc.addImage(stateSeasLast_ChartImg, 'jpg', 60, 50, 475, 320, undefined, 'none');
-		doc.addImage(catchFirstChartImg, 'jpg', 120, 450 ,350, 350, undefined, 'none');
+		doc.addImage(stateSeasLast_ChartImg, 'jpg', 80, 50, 450, 320, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the median states’ Private Angling season lengths in the last 5 years of the 20-year",50,390);
+		doc.text("    management period.",50,400);
+		doc.text("Note: The season length is estimated based on the quota and the average catch rate in 2018.",50,410);
+		doc.addImage(catchFirstChartImg, 'jpg', 120, 460 ,350, 280, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the total catches in the first 5 years.",50,390);
 
 		doc.addPage();
-		doc.addImage(catchLastChartImg, 'jpg', 120, 50, 350, 350, undefined, 'none');
-		doc.addImage(commDiscardsChartImg, 'jpg', 50, 450 ,490, 400, undefined, 'none');
+		doc.addImage(catchLastChartImg, 'jpg', 120, 50, 350, 280, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the total catches in the last 5 years of the 20-year management period.",50,350);
+		doc.addImage(commDiscardsChartImg, 'jpg', 80, 400 ,450, 320, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the median Commercial discards during the projection period.",50,740);
 
 		doc.addPage();
-		doc.addImage(recrDiscardsChartImg, 'jpg', 50, 50, 490, 400, undefined, 'none');
-		doc.setFontSize(12);
-		doc.text('Section 2: Within Sector Comparison', 50, 440);
-		doc.addImage( commRadarChartImg, 'jpg', 50, 460,500, 350, undefined, 'none');
-
+		doc.addImage(recrDiscardsChartImg, 'jpg', 80, 50 ,450, 320, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the median Recreational discards during the projection period.",50,390);
+		doc.setFontSize(16);
+		doc.text('Section 3: Comparison between and within Sectors', 50, 440);
+		doc.addImage(commRadarChartImg, 'jpg', 60, 470,450, 350, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the Commercial Sector performance measures during the 20-Year Management.",50,840);
 		doc.addPage();
-		doc.addImage(recrRadarChartImg, 'jpg', 50, 50, 500, 350, undefined, 'none');
-
+		doc.addImage(recrRadarChartImg, 'jpg', 60, 50, 450, 350, undefined, 'none');
+		doc.setFontSize(10);
+		doc.text("The comparison of the Recreational Sector performance measures during the 20-Year Management.",50,420);
 		//Show inputs for each scenario
 		doc.addPage();
 
