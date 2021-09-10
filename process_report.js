@@ -389,7 +389,7 @@ $(function() {
 			//Essential Figures
 				doc.setFontSize(20);
 				doc.text("Essential Figures:",50 ,225);
-				doc.addImage(totalCatchImgData, 'jpg', 50, 260, 490, 380, undefined, 'none');
+				doc.addImage(totalCatchImgData, 'jpg', 50, 260, 500, 380, undefined, 'none');
         doc.setFontSize(10);
         doc.text("The dynamics of the median total catch (upper) and the median total spawning stock biomass (SSB; lower)",50,640);
         doc.text("    during the projection period.",50,650);
@@ -480,8 +480,8 @@ $(function() {
         doc.text("    period.",50,400);
 				doc.addImage(alCatchPlotImgData, 'jpg', 60,450,480,320,undefined, 'none');
         doc.setFontSize(10);
-        doc.text("Estimated median Private Angling catch in the Alabama State (AL) and the variation during the",50,790);
-        doc.text("    projection period.",50,800);
+        doc.text("Estimated median Private Angling catch in the Alabama State (AL) and the variation during the projection",50,790);
+        doc.text("    period.",50,800);
 
         doc.addPage();
 				doc.addImage(alSeasonPlotImgData, 'jpg', 60,50,480,320,undefined, 'none');
@@ -491,8 +491,8 @@ $(function() {
         doc.text("Note: The season length is estimated based on the quota and the average catch rate in 2018.",50,410);
         doc.addImage(flCatchPlotImgData, 'jpg', 60,460,480,320,undefined, 'none');
         doc.setFontSize(10);
-        doc.text("Estimated median Private Angling catch in the Florida State (FL) and the variation during the",50,800);
-        doc.text("    projection period.",50,810);
+        doc.text("Estimated median Private Angling catch in the Florida State (FL) and the variation during the projection",50,800);
+        doc.text("    period.",50,810);
 
 				doc.addPage();
 				doc.addImage(flSeasonPlotImgData, 'jpg', 60,50,480,320,undefined, 'none');
@@ -502,8 +502,8 @@ $(function() {
         doc.text("Note: The season length is estimated based on the quota and the average catch rate in 2018.",50,410);
         doc.addImage(laCatchPlotImgData, 'jpg', 60,460,480,320,undefined, 'none');
         doc.setFontSize(10);
-        doc.text("Estimated median Private Angling catch in the Louisiana State (LA) and the variation during the",50,800);
-        doc.text("    projection period.",50,810);
+        doc.text("Estimated median Private Angling catch in the Louisiana State (LA) and the variation during the projection",50,800);
+        doc.text("    period.",50,810);
 
 				doc.addPage();
 				doc.addImage(laSeasonPlotImgData, 'jpg', 60,50,480,320,undefined, 'none');
@@ -513,8 +513,8 @@ $(function() {
         doc.text("Note: The season length is estimated based on the quota and the average catch rate in 2018.",50,410);
         doc.addImage(msCatchPlotImgData, 'jpg', 60,460,480,320,undefined, 'none');
         doc.setFontSize(10);
-        doc.text("Estimated median Private Angling catch in the Mississippi State (MS) and the variation during the",50,800);
-        doc.text("    projection period.",50,810);
+        doc.text("Estimated median Private Angling catch in the Mississippi State (MS) and the variation during the projection",50,800);
+        doc.text("    period.",50,810);
 
 				doc.addPage();
 				doc.addImage(msSeasonPlotImgData, 'jpg', 60,50,480,320,undefined, 'none');
