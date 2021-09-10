@@ -395,7 +395,7 @@ $(function() {
         doc.text("    during the projection period.",50,670);
 
         doc.addPage();
-				doc.addImage(catchPlotImgData, 'jpg', 60,50,500,320,undefined, 'none');
+				doc.addImage(catchPlotImgData, 'jpg', 60,50,480,320,undefined, 'none');
         doc.setFontSize(10);
         doc.text("The dynamics of the median catches for the Commercial Sector, the For-hire Component, and the Private Angling",50,390);
         doc.text("    Component during the projection period.",50,400);
@@ -438,35 +438,49 @@ $(function() {
 
         doc.addPage();
 				doc.addImage(recruitmentPlotImgData, 'jpg', 60,50,480,320,undefined, 'none');
+        doc.setFontSize(10);
+        doc.text("The dynamics of the median recruitment in the East Gulf and West Gulf during the projection period.",50,390);
+        doc.setFontSize(20);
+				doc.text("Other Detailed Figures:",50 ,440);
+        doc.addImage(bioChart1ImgData, 'jpg', 60, 470,480, 320, undefined, 'none');
+        doc.setFontSize(10);
+        doc.text("The dynamics of the median Commercial catch and the variation during the projection period.",50,810);
 
 			//Other Detailed Figures
 				doc.addPage();
-				doc.text("Other Detailed Figures:",50 ,120);
-				doc.addImage(bioChart1ImgData, 'jpg', 50, 200,500, 350, undefined, 'none');
+
 				doc.addPage();
 				doc.addImage(sprChart1ImgData, 'jpg', 50,50,500,350,undefined, 'none');
 				doc.addImage(hireChart1ImgData, 'jpg', 50,450,500,350,undefined, 'none');
+
 				doc.addPage();
 				doc.addImage(privateChart1ImgData, 'jpg', 50,50,500,350,undefined, 'none');
 				doc.addImage(fChart1ImgData, 'jpg', 50,450,500,350,undefined, 'none');
+
 				doc.addPage();
 				doc.addImage(ssbEChart1ImgData, 'jpg', 50,50,500,350,undefined, 'none');
 				doc.addImage(ssbWChart1ImgData, 'jpg', 50,450,500,350,undefined, 'none');
+
 				doc.addPage();
 				doc.addImage(ssbGulfChartImgData, 'jpg', 50,50,500,350,undefined, 'none');
 				doc.addImage(alCatchPlotImgData, 'jpg', 50,450,500,350,undefined, 'none');
+
 				doc.addPage();
 				doc.addImage(alSeasonPlotImgData, 'jpg', 50,50,500,350,undefined, 'none');
 				doc.addImage(flCatchPlotImgData, 'jpg', 50,450,500,350,undefined, 'none');
+
 				doc.addPage();
 				doc.addImage(flSeasonPlotImgData, 'jpg', 50,50,500,350,undefined, 'none');
 				doc.addImage(laCatchPlotImgData, 'jpg', 50,450,500,350,undefined, 'none');
+
 				doc.addPage();
 				doc.addImage(laSeasonPlotImgData, 'jpg', 50,50,500,350,undefined, 'none');
 				doc.addImage(msCatchPlotImgData, 'jpg', 50,450,500,350,undefined, 'none');
+
 				doc.addPage();
 				doc.addImage(msSeasonPlotImgData, 'jpg', 50,50,500,350,undefined, 'none');
 				doc.addImage(txCatchPlotImgData, 'jpg', 50,450,500,350,undefined, 'none');
+
 				doc.addPage();
 				doc.addImage(txSeasonPlotImgData, 'jpg', 50,50,500,350,undefined, 'none');
 

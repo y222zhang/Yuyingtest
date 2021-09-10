@@ -33,8 +33,8 @@ var txSeasonPlot = echarts.init(document.getElementById('tx-seas-length-chart'))
 //https://www.cnblogs.com/zhxuxu/p/10634392.html
 //function to return scientific notation of value
 function toScientific(value) {
-	var res = value.toString ();                                            
-	var numN1 = 0; 
+	var res = value.toString ();
+	var numN1 = 0;
 	var numN2 = 1;
 	var num1 = 0;
 	var num2 = 0;
@@ -45,12 +45,12 @@ function toScientific(value) {
 		if (t1)
 		   num1 ++;
 		else
-		   num2 ++;                                                                                              
+		   num2 ++;
 	}
-												   
+
 	if (Math.abs (value) <1 && res.length> 4)
 	{
-		for (var i = 2; i <res.length; i ++) {                                              
+		for (var i = 2; i <res.length; i ++) {
 			if (res [i] == "0") {
 				numN2 ++;
 			} else if (res [i] == ".")
@@ -58,7 +58,7 @@ function toScientific(value) {
 			else
 				break;
 		}
-		var v = parseFloat (value);                                                
+		var v = parseFloat (value);
 		v = v * Math.pow (10, numN2);
 		return v.toString () + "e-" + numN2;
 	} else if (num1> 4)
@@ -67,13 +67,13 @@ function toScientific(value) {
 			numN1 = num1-2;
 		else
 			numN1 = num1-1;
-		var v = parseFloat (value);                                                
+		var v = parseFloat (value);
 		v = v / Math.pow (10, numN1);
 		if (num2> 4)
 			v = v.toFixed (4);
 		return v.toString () + "e+" + numN1;
 	} else
-		return parseFloat (value);                                                                                  
+		return parseFloat (value);
 }
 
 function drawChart(chartdata){
@@ -118,12 +118,12 @@ function drawChart(chartdata){
 	var state_LA_data = ['LA'];
 	var state_MS_data = ['MS'];
 	var state_TX_data = ['*TX'];
-	
+
 
     var kobe_median_data = [];
 	var start_projection = $('#start_projection').find("input").val() || "2016";
 	start_projection = start_projection.substring(0,4);
-	
+
 	var recrStack_xAxisData = [];
 	var recrStack_E_data = [];
 	var recrStack_W_data = [];
@@ -148,7 +148,7 @@ function drawChart(chartdata){
     var private_low_data = [];
     var private_median_data = [];
 	var private_high_data = [];
-	
+
 	var f_xAxisData = [];
     var f_low_data = [];
     var f_median_data = [];
@@ -218,7 +218,7 @@ function drawChart(chartdata){
     var  TX_seas_low_data = [];
     var  TX_seas_median_data = [];
 	var  TX_seas_high_data = [];
-	
+
 	//Total Catch & Total SSB
 	var totalCatchOption = {
 
@@ -790,7 +790,7 @@ function drawChart(chartdata){
 		},
 		grid: [
 			{top: '60%'},
-		
+
 		],
 		series: [
 			{type: 'line', smooth: true, seriesLayoutBy: 'row'},
@@ -833,7 +833,7 @@ function drawChart(chartdata){
 			});
 		}
 	});
-	
+
 	kobe_option = {
     title: {
 		left: 'center',
@@ -866,9 +866,9 @@ function drawChart(chartdata){
                     fontSize:9
                 }
             },
-            
+
         },
-        nameLocation:'middle',        
+        nameLocation:'middle',
     },
     yAxis: {
         min:0,
@@ -888,7 +888,7 @@ function drawChart(chartdata){
                     fontSize:9
                 }
             },
-            
+
         },
 		nameLocation:'middle',
 
@@ -997,12 +997,12 @@ function drawChart(chartdata){
                  [2,1],
             ]
         },
-        
-        
+
+
     ]
 };
 
-	
+
 	//Recruitment: East & West
 	var recruitmentOption = {
 		title: {
@@ -1095,8 +1095,8 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-            }
+              return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+						  }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
@@ -1190,8 +1190,8 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-            }
+                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+							 }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
@@ -1285,8 +1285,8 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-            }
+                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+							 }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
@@ -1380,8 +1380,8 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-            }
+                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+							 }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
@@ -1475,8 +1475,8 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-            }
+                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+							 }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
@@ -1568,7 +1568,7 @@ function drawChart(chartdata){
 	    ]
 	};
 
-	
+
 
 	//SSB East
 	var ssbE_option = {
@@ -1593,8 +1593,8 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-            }
+                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+							 }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
@@ -1693,8 +1693,8 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-            }
+                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+							 }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
@@ -1793,8 +1793,8 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-            }
+                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+							 }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
@@ -1915,8 +1915,8 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			}
+				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			 }
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
@@ -2010,8 +2010,8 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			}
+				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			 }
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
@@ -2105,8 +2105,8 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			}
+				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			 }
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
@@ -2200,8 +2200,8 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			}
+				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			 }
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
@@ -2295,8 +2295,8 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			}
+				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			 }
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
@@ -2390,8 +2390,8 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			}
+				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			 }
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
@@ -2485,8 +2485,8 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			}
+				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			 }
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
@@ -2580,8 +2580,8 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			}
+				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			 }
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
@@ -2675,8 +2675,8 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			}
+				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			 }
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
@@ -2770,8 +2770,8 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+params[2].value+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			}
+				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			 }
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
@@ -2888,13 +2888,13 @@ function drawChart(chartdata){
 			totalSSB_xAxisData.push(el.year);
 			totalSSB_data.push(el.total_SSB_median/1e+9);
 		});
-		
+
 		totalCatchOption.xAxis[0].data = totalCatch_xAxisData;
 		totalCatchOption.series[0].data = totalCatch_data;
 		totalCatchOption.xAxis[1].data = totalSSB_xAxisData;
 		totalCatchOption.series[1].data = totalSSB_data;
 		totalCatch.setOption(totalCatchOption);
-		
+
 		$.each(chartdata,function(index, el) {
         	catchStack_xAxisData.push(el.year);
 			catchStack_comm_data.push(el.comm_catch_mean);
@@ -3009,7 +3009,7 @@ function drawChart(chartdata){
         	comm_xAxisData.push(el.year);
 			comm_low_data.push(el.comm_catch_025);
 			comm_median_data.push(el.comm_catch_median);
-			comm_high_data.push(el.comm_catch_975);
+			comm_high_data.push(el.comm_catch_975-el.comm_catch_025);
         });
         comm_option.xAxis.data = comm_xAxisData;
         comm_option.series[0].data = comm_low_data;
@@ -3021,7 +3021,7 @@ function drawChart(chartdata){
         	recr_xAxisData.push(el.year);
 			recr_low_data.push(el.recr_catch_025);
 			recr_median_data.push(el.recr_catch_median);
-			recr_high_data.push(el.recr_catch_975);
+			recr_high_data.push(el.recr_catch_975-el.recr_catch_025);
         });
 
         recr_option.xAxis.data = recr_xAxisData;
@@ -3034,7 +3034,7 @@ function drawChart(chartdata){
         	hire_xAxisData.push(el.year);
 			hire_low_data.push(el.Forhire_catch_025);
 			hire_median_data.push(el.Forhire_catch_median);
-			hire_high_data.push(el.Forhire_catch_975);
+			hire_high_data.push(el.Forhire_catch_975-el.Forhire_catch_025);
         });
 
         hire_option.xAxis.data = hire_xAxisData;
@@ -3047,7 +3047,7 @@ function drawChart(chartdata){
         	private_xAxisData.push(el.year);
 			private_low_data.push(el.Private_catch_025);
 			private_median_data.push(el.Private_catch_median);
-			private_high_data.push(el.Private_catch_975);
+			private_high_data.push(el.Private_catch_975-el.Private_catch_025);
         });
 
         private_option.xAxis.data = private_xAxisData;
@@ -3060,7 +3060,7 @@ function drawChart(chartdata){
         	f_xAxisData.push(el.year);
 			f_low_data.push(el.F_general_025);
 			f_median_data.push(el.F_general_median);
-			f_high_data.push(el.F_general_975);
+			f_high_data.push(el.F_general_975-el.F_general_025);
         });
         f_option.xAxis.data = f_xAxisData;
         f_option.series[0].data = f_low_data;
@@ -3072,7 +3072,7 @@ function drawChart(chartdata){
         	ssbGulf_xAxisData.push(el.year);
 			ssbGulf_low_data.push(el.SSB_total_025);
 			ssbGulf_median_data.push(el.SSB_total_median);
-			ssbGulf_high_data.push(el.SSB_total_975);
+			ssbGulf_high_data.push(el.SSB_total_975-el.SSB_total_025);
         });
 
         ssbGulf_option.xAxis.data = ssbGulf_xAxisData;
@@ -3085,7 +3085,7 @@ function drawChart(chartdata){
         	ssbE_xAxisData.push(el.year);
 			ssbE_low_data.push(el.SSB_1_025);
 			ssbE_median_data.push(el.SSB_1_median);
-			ssbE_high_data.push(el.SSB_1_975);
+			ssbE_high_data.push(el.SSB_1_975-el.SSB_1_025);
         });
 
         ssbE_option.xAxis.data = ssbE_xAxisData;
@@ -3098,7 +3098,7 @@ function drawChart(chartdata){
         	ssbW_xAxisData.push(el.year);
 			ssbW_low_data.push(el.SSB_2_025);
 			ssbW_median_data.push(el.SSB_2_median);
-			ssbW_high_data.push(el.SSB_2_975);
+			ssbW_high_data.push(el.SSB_2_975-el.SSB_2_025);
         });
 
         ssbW_option.xAxis.data = ssbW_xAxisData;
@@ -3111,9 +3111,9 @@ function drawChart(chartdata){
         	AL_catch_xAxisData.push(el.year);
 			AL_catch_low_data.push(el.true_private_AL_catch_025);
 			AL_catch_median_data.push(el.true_private_AL_catch_median);
-			AL_catch_high_data.push(el.true_private_AL_catch_975);
+			AL_catch_high_data.push(el.true_private_AL_catch_975-el.true_private_AL_catch_025);
 		});
-		
+
 		al_catch_option.xAxis.data = AL_catch_xAxisData;
         al_catch_option.series[0].data = AL_catch_low_data;
         al_catch_option.series[1].data = AL_catch_median_data;
@@ -3124,9 +3124,9 @@ function drawChart(chartdata){
         	AL_seas_xAxisData.push(el.year);
 			AL_seas_low_data.push(el.true_private_AL_season_length_025);
 			AL_seas_median_data.push(el.true_private_AL_season_length_median);
-			AL_seas_high_data.push(el.true_private_AL_season_length_975);
+			AL_seas_high_data.push(el.true_private_AL_season_length_975-el.true_private_AL_season_length_025);
 		});
-		
+
 		al_season_option.xAxis.data = AL_seas_xAxisData;
         al_season_option.series[0].data = AL_seas_low_data;
         al_season_option.series[1].data = AL_seas_median_data;
@@ -3137,9 +3137,9 @@ function drawChart(chartdata){
         	FL_catch_xAxisData.push(el.year);
 			FL_catch_low_data.push(el.true_private_FL_catch_025);
 			FL_catch_median_data.push(el.true_private_FL_catch_median);
-			FL_catch_high_data.push(el.true_private_FL_catch_975);
+			FL_catch_high_data.push(el.true_private_FL_catch_975-el.true_private_FL_catch_025);
 		});
-		
+
 		fl_catch_option.xAxis.data = FL_catch_xAxisData;
         fl_catch_option.series[0].data = FL_catch_low_data;
     	fl_catch_option.series[1].data = FL_catch_median_data;
@@ -3150,9 +3150,9 @@ function drawChart(chartdata){
         	FL_seas_xAxisData.push(el.year);
 			FL_seas_low_data.push(el.true_private_FL_season_length_025);
 			FL_seas_median_data.push(el.true_private_FL_season_length_median);
-			FL_seas_high_data.push(el.true_private_FL_season_length_975);
+			FL_seas_high_data.push(el.true_private_FL_season_length_975-el.true_private_FL_season_length_025);
 		});
-		
+
 		fl_season_option.xAxis.data = FL_seas_xAxisData;
         fl_season_option.series[0].data = FL_seas_low_data;
         fl_season_option.series[1].data = FL_seas_median_data;
@@ -3163,9 +3163,9 @@ function drawChart(chartdata){
         	LA_catch_xAxisData.push(el.year);
 			LA_catch_low_data.push(el.true_private_LA_catch_025);
 			LA_catch_median_data.push(el.true_private_LA_catch_median);
-			LA_catch_high_data.push(el.true_private_LA_catch_975);
+			LA_catch_high_data.push(el.true_private_LA_catch_975-el.true_private_LA_catch_025);
 		});
-		
+
 		la_catch_option.xAxis.data = LA_catch_xAxisData;
         la_catch_option.series[0].data = LA_catch_low_data;
     	la_catch_option.series[1].data = LA_catch_median_data;
@@ -3176,9 +3176,9 @@ function drawChart(chartdata){
         	LA_seas_xAxisData.push(el.year);
 			LA_seas_low_data.push(el.true_private_LA_season_length_025);
 			LA_seas_median_data.push(el.true_private_LA_season_length_median);
-			LA_seas_high_data.push(el.true_private_LA_season_length_975);
+			LA_seas_high_data.push(el.true_private_LA_season_length_975-el.true_private_LA_season_length_025);
 		});
-		
+
 		la_season_option.xAxis.data = LA_seas_xAxisData;
         la_season_option.series[0].data = LA_seas_low_data;
         la_season_option.series[1].data = LA_seas_median_data;
@@ -3189,9 +3189,9 @@ function drawChart(chartdata){
         	MS_catch_xAxisData.push(el.year);
 			MS_catch_low_data.push(el.true_private_MS_catch_025);
 			MS_catch_median_data.push(el.true_private_MS_catch_median);
-			MS_catch_high_data.push(el.true_private_MS_catch_975);
+			MS_catch_high_data.push(el.true_private_MS_catch_975-el.true_private_MS_catch_025);
 		});
-		
+
 		ms_catch_option.xAxis.data = MS_catch_xAxisData;
         ms_catch_option.series[0].data = MS_catch_low_data;
     	ms_catch_option.series[1].data = MS_catch_median_data;
@@ -3202,9 +3202,9 @@ function drawChart(chartdata){
         	MS_seas_xAxisData.push(el.year);
 			MS_seas_low_data.push(el.true_private_MS_season_length_025);
 			MS_seas_median_data.push(el.true_private_MS_season_length_median);
-			MS_seas_high_data.push(el.true_private_MS_season_length_975);
+			MS_seas_high_data.push(el.true_private_MS_season_length_975-el.true_private_MS_season_length_025);
 		});
-		
+
 		ms_season_option.xAxis.data = MS_seas_xAxisData;
         ms_season_option.series[0].data = MS_seas_low_data;
         ms_season_option.series[1].data = MS_seas_median_data;
@@ -3215,22 +3215,22 @@ function drawChart(chartdata){
         	TX_catch_xAxisData.push(el.year);
 			TX_catch_low_data.push(el.true_private_TX_catch_025);
 			TX_catch_median_data.push(el.true_private_TX_catch_median);
-			TX_catch_high_data.push(el.true_private_TX_catch_975);
+			TX_catch_high_data.push(el.true_private_TX_catch_975-el.true_private_TX_catch_025);
 		});
-		
+
 		tx_catch_option.xAxis.data = TX_catch_xAxisData;
         tx_catch_option.series[0].data = TX_catch_low_data;
     	tx_catch_option.series[1].data = TX_catch_median_data;
         tx_catch_option.series[2].data = TX_catch_high_data;
 		txCatchPlot.setOption(tx_catch_option);
-		
+
 		$.each(chartdata,function(index, el) {
         	TX_seas_xAxisData.push(el.year);
 			TX_seas_low_data.push(el.true_private_TX_season_length_025);
 			TX_seas_median_data.push(el.true_private_TX_season_length_median);
-			TX_seas_high_data.push(el.true_private_TX_season_length_975);
+			TX_seas_high_data.push(el.true_private_TX_season_length_975-el.true_private_TX_season_length_025);
 		});
-		
+
 		tx_season_option.xAxis.data = TX_seas_xAxisData;
         tx_season_option.series[0].data = TX_seas_low_data;
         tx_season_option.series[1].data = TX_seas_median_data;
@@ -3242,4 +3242,3 @@ function drawChart(chartdata){
 	}
 
 }
-
