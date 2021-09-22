@@ -429,12 +429,12 @@ $(function() {
         doc.text("Note: The season length is estimated based on the quota and the average catch rate in 2018.",50,400);
         doc.addImage(kobeChart1ImgData, 'jpg', 60,450,480,320,undefined, 'none');
         doc.setFontSize(10);
-        doc.fromHTML('<p style="padding:20px">Kobe plot with median fishing mortality ratio (relative to F<sub>SPR26%</sub>) and median spawning biomass ratio (relative to SSB<sub>SPR26%</sub>).</p>',50,780)
-        doc.text("    The Kobe plot is divided into four panels: The red panel (upper left) corresponds to the “overfished and ",50,790);
-        doc.text("    overfishing phase” area. The light green panel (lower right) is the “no risk” area. The orange panel",50,800);
-        doc.text("    (lower left) corresponds to the “overfished, but not overfishing” area. The olive-green panel (upper right)",50,810);
-        doc.text("    is the “overfishing, but no overfished” area. This Kobe plot characterizes the mediate situations. Blue ",50,820);
-        doc.text("    circles represent the annual trajectory of the Gulf of Mexico red snapper fishery over time.",50,830);
+        doc.text("Kobe plot with median fishing mortality ratio (relative to F(SPR26%) and median spawning biomass ratio (relative",50,780);
+        doc.text("    to SSB(SPR26%). The Kobe plot is divided into four panels: The red panel (upper left) corresponds to",50,790);
+        doc.text("    the “overfished and overfishing phase” area. The light green panel (lower right) is the “no risk” area.",50,800);
+        doc.text("    The orange panel (lower left) corresponds to the “overfished, but not overfishing” area. The olive-green",50,810);
+        doc.text("    panel (upper right) is the “overfishing, but no overfished” area. This Kobe plot characterizes the mediate",50,820);
+        doc.text("    situations. Blue circles represent the annual trajectory of the Gulf of Mexico red snapper fishery over time.",50,830);
 
         doc.addPage();
 				doc.addImage(recruitmentPlotImgData, 'jpg', 60,50,480,320,undefined, 'none');
