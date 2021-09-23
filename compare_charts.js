@@ -250,7 +250,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Total Catch
     var catchOption = {
         title:{
-            text:'Total Catch'
+	    left: 'center',
+            text:'Total Annual Catch'
         },
         legend: {
             padding: [40, 20]
@@ -262,17 +263,21 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         dataset: {
             source: []
         },
-        xAxis: {type: 'category'},
+        xAxis: {
+	    type: 'category',
+	    name: 'Year'
+	},
         yAxis: {
             gridIndex: 0,
-            name:'Catch(1000 lb)',
+            name:'Catch (1000 lb)',
             max: function (value) {
                 var newVal = value.max * 1.2;
                 return Math.round(newVal/1000)*1000
             }
         },
         grid:{
-            bottom:'20%',
+	    right: '10%',
+            bottom:'3%',
             top:'15%'
         },
         series: []
@@ -281,7 +286,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //SSB for the Gulf
     var SSBGulfOption = {
         title:{
-            text:'SSB for the Gulf'
+	    left: 'center',
+            text:'Stock Spawning Biomass'
         },
         legend: {
             padding: [40, 20]
@@ -293,12 +299,15 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         dataset: {
             source: []
         },
-        xAxis: {type: 'category'},
+        xAxis: {
+	    type: 'category',
+	    name: 'Year'
+	},
         yAxis: {
-            name:'SSB(1000 eggs)',
+            name:'SSB (trillion eggs)',
             max: function (value) {
-                var newVal = value.max * 1.2;
-                return Math.round(newVal/1e+11)*1e+11;
+                var newVal = value.max * 1.2*1e+9;
+                return Math.round(newVal/1e+12)*1e+3;
             },
             axisLabel: {
                 formatter: function (value){
@@ -307,7 +316,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
             }
         },
         grid:{
-            bottom:'20%',
+            right: '10%',
+            bottom:'3%',
             top:'15%'
         },
         series: []
@@ -317,6 +327,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Catch for 20-Year Management
     var catch20option = {
         title:{
+	    left: 'center',
             text:'Catch for 20-Year Management'
         },
         xAxis: {
@@ -328,7 +339,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         },
         yAxis: {
             type: 'value',
-            name:'Catch(1000 lb)',
+            name:'Catch (1000 lb)',
             max: function (value) {
                 var newVal = value.max * 1.2;
                 return Math.round(newVal/10000)*10000;
@@ -353,7 +364,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Annual Catch Variation, 20-Year Management
     var annualCatch20option = {
         title:{
-            text:'Annual Catch Variation, 20-Year Management'
+            left: 'center',
+	    text:'Annual Catch Variation, 20-Year Management'
         },
         xAxis: {
             type: 'category',
@@ -364,7 +376,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         },
         yAxis: {
             type: 'value',
-            name:'Catch(1000 lb)',
+            name:'CV',
             max: function (value) {
                 var newVal = value.max * 1.2;
                 return Number(newVal.toFixed(2));
@@ -389,6 +401,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Terminal SSB after 20-Year Management
     var terminalSSBOption = {
         title:{
+	    left: 'center',
             text:'Terminal SSB after 20-Year Management'
         },
         xAxis: {
@@ -400,10 +413,10 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         },
         yAxis: {
             type: 'value',
-            name:'SSB(1000 eggs)',
+            name:'SSB (trillion eggs)',
             max: function (value) {
-                var newVal = value.max * 1.2;
-                return Math.round(newVal/1e+12)*1e+12;
+                var newVal = value.max *1e+9;
+                return Math.round(newVal/1e+12)*1e+3+1e+3;
             },
             axisLabel: {
                 formatter: function (value){
@@ -427,6 +440,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Lowest SSB during 20-Year Management
     var lowestSSBOption = {
         title:{
+	    left: 'center',
             text:'Lowest SSB during 20-Year Management'
         },
         xAxis: {
@@ -438,10 +452,10 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         },
         yAxis: {
             type: 'value',
-            name:'SSB(1000 eggs)',
+            name:'SSB (trillion eggs)',
             max: function (value) {
-                var newVal = value.max * 1.2;
-                return Math.round(newVal/1e+12)*1e+12;
+                var newVal = value.max *1e+9;
+                return Math.round(newVal/1e+12)*1e+3+1e+3;
             },
             axisLabel: {
                 formatter: function (value){
@@ -462,10 +476,11 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         }]
     };
 
-    //Percentage to Green
+    //Probability to Green
     var percentGreen_option = {
         title:{
-            text:'Percentage to Green'
+	    left: 'center',
+            text:'Probability to Green'
         },
         xAxis: {
             type: 'category',
@@ -494,16 +509,19 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
 
     var radarOption_1 = {
         title: {
-            text: ''
+	    left: 'center',
+            text: 'General Performance Measures 20-Year Management'
         },
         tooltip: {},
         legend: {
             data: mseNames,
-            left:'0',
-            top:'0',
+            top:'5%',
+	    bottom: '1%'
         },
         radar: {
             // shape: 'circle',
+	    center: ['50%', '55%'],
+            radius:'65%',
             name: {
                 textStyle: {
                     color: '#fff',
@@ -513,11 +531,11 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
             }
             },
             indicator: [
-            { name: 'Annual Catch Variation 20-Year Management', max: .40},
-            { name: 'Catch for 20-Year Management', max: 250000},
-            { name: 'Terminal SSB after 20-Year Management', max: 2e+12},
-            { name: 'Lowest SSB during 20-Year Management', max: 1e+12},
-            { name: 'Percentage to Green', max: 1},
+            { name: 'Annual Catch Variation \n20-Year Management', max: .40},
+            { name: 'Catch (1000 lb) \nfor 20-Year Management', max: 250000},
+            { name: 'Terminal SSB (trillion eggs) \nafter 20-Year Management', max: 2e+3},
+            { name: 'Lowest SSB (trillion eggs) \nduring 20-Year Management', max: 1e+3},
+            { name: 'Probability to Green \n20-Year Management', max: 1},
             ]
         },
         series: [{
@@ -530,7 +548,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Total Discards
     var totalDiscards_option = {
         title:{
-            text:'Discard for 20-Year Management'
+            left: 'center',
+	    text:'Discards for 20-Year Management'
         },
         xAxis: {
             type: 'category',
@@ -541,7 +560,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         },
         yAxis: {
             type: 'value',
-            name:'Discard(1000 lb)',
+            name:'Discards (1000 lb)',
             max: function (value) {
                 var newVal = value.max * 1.2;
                 return Math.round(newVal/10000)*10000;
@@ -565,7 +584,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //var Discards
     var varDiscards_option = {
         title:{
-            text:'Annual Discard Variation, 20-Year Management'
+            left: 'center',
+	    text:'Annual Discards Variation, 20-Year Management'
         },
         xAxis: {
             type: 'category',
@@ -576,7 +596,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         },
         yAxis: {
             type: 'value',
-            name:'Standard Deviation(1000 lb)',
+            name:'CV',
             max: function (value) {
                 var newVal = value.max * 1.2;
                 return Number(newVal.toFixed(1));
@@ -603,6 +623,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Commercial Catch
     var commCatchOption = {
         title:{
+	    left: 'center',
             text:'Commercial Catch'
         },
         legend: {
@@ -615,16 +636,20 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         dataset: {
             source: []
         },
-        xAxis: {type: 'category'},
+        xAxis: {
+	    type: 'category',
+	    name: 'Year'
+	},
         yAxis: {
-            name:'Catch(1000 lb)',
+            name:'Catch (1000 lb)',
             max: function (value) {
                 var newVal = value.max * 1.2;
                 return Math.round(newVal/1000)*1000
             }
         },
         grid:{
-            bottom:'20%',
+	    right: '10%',
+            bottom:'3%',
             top:'15%'
         },
         series: []
@@ -633,7 +658,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Federal For-hire Catch
     var fedCatchOption = {
         title:{
-            text:'Federal For-hire Catch'
+            left: 'center',
+	    text:'Federal For-hire Catch'
         },
         legend: {
             padding: [40, 20]
@@ -645,16 +671,20 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         dataset: {
             source: []
         },
-        xAxis: {type: 'category'},
+        xAxis: {
+	    type: 'category',
+	    name: 'Year'
+	},
         yAxis: {
-            name:'Catch(1000 lb)',
+            name:'Catch (1000 lb)',
             max: function (value) {
                 var newVal = value.max * 1.2;
-                return Math.round(newVal/100)*100
+                return Math.round(newVal/1000)*1000
             }
         },
         grid:{
-            bottom:'20%',
+            right: '10%',
+	    bottom:'3%',
             top:'15%'
         },
         series: []
@@ -663,7 +693,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Private Angling Catch
     var privateCatchOption = {
         title:{
-            text:'Private Angling Catch'
+            left: 'center',
+	    text:'Private Angling Catch'
         },
         legend: {
             padding: [40, 20]
@@ -675,16 +706,20 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         dataset: {
             source: []
         },
-        xAxis: {type: 'category'},
+        xAxis: {
+	    type: 'category',
+	    name: 'Year'
+	},
         yAxis: {
-            name:'Catch(1000 lb)',
+            name:'Catch (1000 lb)',
             max: function (value) {
                 var newVal = value.max * 1.2;
-                return Math.round(newVal/100)*100
+                return Math.round(newVal/1000)*1000
             }
         },
         grid:{
-            bottom:'20%',
+            right: '10%',
+	    bottom:'3%',
             top:'15%'
         },
         series: []
@@ -693,7 +728,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //SSB for the Gulf, Ave of First 5-Year
     var ssbfirst_option = {
         title:{
-            text:'SSB for the Gulf, Ave of First 5-Year'
+            left: 'center',
+	    text:'Total SSB, Ave of First 5-Year'
         },
         xAxis: {
             type: 'category',
@@ -704,12 +740,12 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         },
         yAxis: {
             type: 'value',
-            name:'SSB(1000 eggs)',
-            // max: function (value) {
-            // 	var newVal = value.max * 1.2;
+            name:'SSB (trillion eggs)',
+            max: function (value) {
+            	var newVal = value.max *1e+9;
             // 	console.log(Math.round(newVal/1e+12)*1e+12);
-            // 	return Math.round(newVal/1e+12)*1e+12;
-            // },
+             	return Math.round(newVal/1e+12)*1e+3+1e+3;
+            },
             axisLabel: {
                 formatter: function (value){
                     return toScientific(value);
@@ -732,7 +768,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //SSB for the Gulf, Ave of Last 5-Year
     var ssbLast_option = {
         title:{
-            text:'SSB for the Gulf, Ave of Last 5-Year'
+            left: 'center',
+	    text:'Total SSB, Ave of Last 5-Year'
         },
         xAxis: {
             type: 'category',
@@ -743,10 +780,10 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         },
         yAxis: {
             type: 'value',
-            name:'SSB(1000 eggs)',
+            name:'SSB (trillion eggs)',
             max: function (value) {
-                var newVal = value.max * 1.2;
-                return Math.round(newVal/1e+12)*1e+12;
+                var newVal = value.max *1e+9;
+                return Math.round(newVal/1e+12)*1e+3;
             },
             axisLabel: {
                 formatter: function (value){
@@ -771,7 +808,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     var barLabelOption_1 = {
         color: ['#003366', '#006699', '#4cabce', '#e5323e'],
         title:{
-            text:'Catches for Federal For-hire and Private Angling Sectors in the First 5 Years'
+            left: 'center',
+	    text:'Catches for Sectors'
         },
         tooltip: {
             trigger: 'axis',
@@ -800,10 +838,10 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         yAxis: [
             {
                 type: 'value',
-                name:'Catch(1000 lb)',
+                name:'Catch (1000 lb)',
                 max: function (value) {
                     var newVal = value.max * 1.2;
-                    return Math.round(newVal/100)*100;
+                    return Math.round(newVal/1000)*1000;
                 },
             }
         ],
@@ -837,7 +875,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     var stateCatchFirst_option = {
         color: ['#003366', '#006699', '#4cabce', '#e5323e','#EF9A9A'],
         title:{
-            text:'State Private Angling Catch, Ave First 5-Year'
+            left: 'center',
+	    text:'State Private Angling Catch, Ave First 5-Year'
         },
         tooltip: {
             trigger: 'axis',
@@ -850,7 +889,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
             //width:'80%'
         },
         grid:{
-            top:'12%',
+            top:'15%',
             //bottom:'23%'   
         },
         xAxis: [
@@ -866,10 +905,10 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         yAxis: [
             {
                 type: 'value',
-                name:'Catch(1000 lb)',
+                name:'Catch (1000 lb)',
                 max: function (value) {
                     var newVal = value.max * 1.2;
-                    return Math.round(newVal/100)*100;
+                    return Math.round(newVal/1000)*1000+1000;
                 },
             }
         ],
@@ -908,7 +947,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     var stateCatchLast_option = {
         color: ['#003366', '#006699', '#4cabce', '#e5323e','#EF9A9A'],
         title:{
-            text:'State Private Angling Catch, Ave Last 5-Year'
+            left: 'center',
+	    text:'State Private Angling Catch, Ave Last 5-Year'
         },
         tooltip: {
             trigger: 'axis',
@@ -921,7 +961,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
             //width:'80%'
         },
         grid:{
-            top:'12%',
+            top:'15%',
             //bottom:'23%'   
         },
         xAxis: [
@@ -937,10 +977,10 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         yAxis: [
             {
                 type: 'value',
-                name:'Catch(1000 lb)',
+                name:'Catch (1000 lb)',
                 max: function (value) {
                     var newVal = value.max * 1.2;
-                    return Math.round(newVal/100)*100;
+                    return Math.round(newVal/1000)*1000+1000;
                 },
             }
         ],
@@ -979,6 +1019,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     var stateSeasFirst_option = {
         color: ['#003366', '#006699', '#4cabce', '#e5323e','#EF9A9A'],
         title:{
+	    left: 'center',
             text:'State Private Angling Season Length, Ave First 5-Year'
         },
         tooltip: {
@@ -992,7 +1033,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
             //width:'80%'
         },
         grid:{
-            top:'12%',
+            top:'15%',
             //bottom:'23%'   
         },
         xAxis: [
@@ -1008,7 +1049,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         yAxis: [
             {
                 type: 'value',
-                name:'Season Length(days)',
+                name:'Season Length (days)',
                 max: function (value) {
                     var newVal = value.max * 1.2;
                     return Math.round(newVal/10)*10;
@@ -1050,7 +1091,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     var stateSeasLast_option = {
         color: ['#003366', '#006699', '#4cabce', '#e5323e','#EF9A9A'],
         title:{
-            text:'State Private Angling Season Length, Ave Last 5-Year'
+            left: 'center',
+	    text:'State Private Angling Season Length, Ave Last 5-Year'
         },
         tooltip: {
             trigger: 'axis',
@@ -1079,7 +1121,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         yAxis: [
             {
                 type: 'value',
-                name:'Season Length(days)',
+                name:'Season Length (days)',
                 max: function (value) {
                     var newVal = value.max * 1.2;
                     return Math.round(newVal/10)*10;
@@ -1120,7 +1162,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Catch, Ave of First 5-Year
     var catchFirst_option = {
         title:{
-            text:'Catch, Ave of First 5-Year'
+            left: 'center',
+	    text:'Total Catch, Ave of First 5-Year'
         },
         xAxis: {
             type: 'category',
@@ -1131,7 +1174,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         },
         yAxis: {
             type: 'value',
-            name:'Catch(1000 lb)',
+            name:'Catch (1000 lb)',
             max: function (value) {
                 var newVal = value.max * 1.2;
                 return Math.round(newVal/1000)*1000;
@@ -1153,7 +1196,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Catch, Ave of Last 5-Year
     var catchLast_option = {
         title:{
-            text:'Catch, Ave of Last 5-Year'
+            left: 'center',
+	    text:'Total Catch, Ave of Last 5-Year'
         },
         xAxis: {
             type: 'category',
@@ -1164,7 +1208,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         },
         yAxis: {
             type: 'value',
-            name:'Catch(1000 lb)',
+            name:'Catch (1000 lb)',
             max: function (value) {
                 var newVal = value.max * 1.2;
                 return Math.round(newVal/1000)*1000;
@@ -1186,7 +1230,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Commercial Discards
     var commDiscards_option = {
         title:{
-            text:'Discards'
+            left: 'center',
+	    text:'Commercial Discards'
         },
         legend: {
             padding: [40, 20]
@@ -1198,26 +1243,31 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         dataset: {
             source: []
         },
-        xAxis: {type: 'category'},
+        xAxis: {
+	    type: 'category',
+	    name: 'Year'
+	},
         yAxis: {
             gridIndex: 0,
-            name:'Discard(1000 lb)',
+            name:'Discards (1000 lb)',
             max: function (value) {
                 var newVal = value.max * 1.2;
-                return Math.round(newVal/100)*100
+                return Math.round(newVal/1000)*1000
             }
         },
         grid:{
-            bottom:'20%',
+            right: '10%',
+	    bottom:'3%',
             top:'15%'
         },
         series: []
     }
 
-    //Annual Discard/Allocation Ratio
+    //
     var recrDiscards_option = {
         title:{
-            text:'Annual Discard/Allocation Ratio'
+            left: 'center',
+	    text:'Recreational Discards'
         },
         legend: {
             padding: [40, 20]
@@ -1229,17 +1279,21 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         dataset: {
             source: []
         },
-        xAxis: {type: 'category'},
+        xAxis: {
+	    type: 'category',
+	    name: 'Year'
+	},
         yAxis: {
             gridIndex: 0,
-            name:'Discard/Allocation',
+            name:'Discards (1000 lb)',
             max: function (value) {
                 var newVal = value.max * 1.2;
                 return Math.round(newVal/100)*100
             }
         },
         grid:{
-            bottom:'20%',
+	    right: '10%',
+            bottom:'3%',
             top:'15%'
         },
         series: []
@@ -1249,15 +1303,17 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Commercial Sector
     var commRadar_option = {
         title: {
-            text: 'Commercial Sector'
+	    left: 'center',
+            text: 'Performance Measures within the Commercial Sector'
         },
         tooltip: {},
         legend: {
             data: mseNames,
-            top:'6%'
+            top:'5%',
+	    bottom: '1%'
         },
         radar: {
-            center: ['50%', '50%'],
+            center: ['50%', '55%'],
             radius:'65%',
             // shape: 'circle',
             name: {
@@ -1269,10 +1325,10 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
             }
             },
             indicator: [
-            { name: 'Commercial Catch Variation 20-Year Management'},
-            { name: 'Commercial Catch First 5-Year'},
-            { name: 'Commercial Catch Last 5-Year'},
-            { name: 'SSB of the Gulf Last 5-Year'},
+            { name: 'Commercial Catch Variation \n20-Year Management'},
+            { name: 'Commercial Catch \nFirst 5-Year'},
+            { name: 'Commercial Catch \nLast 5-Year'},
+            { name: 'Total SSB\nLast 5-Year'},
             { name: 'Probability to Green'},
             { name: 'Commercial Discards/Allocation,\n20-Year Management'},
             ]
@@ -1287,15 +1343,17 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     //Recreational Sector
     var recrRadar_option = {
         title: {
-            text: 'Recreational Sector'
+            left: 'center',
+	    text: 'Performance Measures within the Recreational Sector'
         },
         tooltip: {},
         legend: {
             data: mseNames,
-            top:'6%'
+            top:'5%',
+	    bottom: '1%'
         },
         radar: {
-            center: ['50%', '50%'],
+            center: ['50%', '55%'],
             radius:'65%',
             // shape: 'circle',
             name: {
@@ -1307,12 +1365,12 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
             }
             },
             indicator: [
-            { name: 'Recreational Catch Variation 20-Year Management'},
-            { name: 'Federal For-hire Catch First 5-Year'},
-            { name: 'Private Angling Catch First 5-Year'},
-            { name: 'Federal For-hire Catch Last 5-Year'},
-            { name: 'Private Angling Catch Last 5-Year'},
-            { name: 'SSB of the Gulf Last 5-Year'},
+            { name: 'Recreational Catch Variation \n20-Year Management'},
+            { name: 'Federal For-hire Catch \nFirst 5-Year'},
+            { name: 'Private Angling Catch \nFirst 5-Year'},
+            { name: 'Federal For-hire Catch \nLast 5-Year'},
+            { name: 'Private Angling Catch \nLast 5-Year'},
+            { name: 'Total SSB \nLast 5-Year'},
             { name: 'Probability to Green'},
             { name: 'Recreational Discards/Allocation, \n20-Year Management'},
             ]
@@ -1362,7 +1420,7 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
 
         //for each year
         $.each(mseSingleLists[i],function(index, el) {
-            temp.push(el.total_SSB_median);
+            temp.push(el.total_SSB_median/1e+9);
         });
 
         if(i == 0){
@@ -1394,18 +1452,18 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     annualCatch20Chart.setOption(annualCatch20option);
 
     $.each(mseComp,function(index, el) {
-        terminalSSB_data.push(el.terminal_SSB_median_MSEcomp);
-        terminalSSB_high_data.push(el.terminal_SSB_upper_MSEcomp);
-        terminalSSB_low_data.push(el.terminal_SSB_lower_MSEcomp);
+        terminalSSB_data.push(el.terminal_SSB_median_MSEcomp/1e+9);
+        terminalSSB_high_data.push(el.terminal_SSB_upper_MSEcomp/1e+9);
+        terminalSSB_low_data.push(el.terminal_SSB_lower_MSEcomp/1e+9);
     });
     terminalSSBOption.series[0].data = terminalSSB_data;
     terminalSSBOption.series.push(getErrorOption(terminalSSB_low_data,terminalSSB_high_data));
     terminalChart.setOption(terminalSSBOption);
 
     $.each(mseComp,function(index, el) {
-        lowestSSB_data.push(el.lowest_SSB_median_MSEcomp);
-        lowestSSB_high_data.push(el.lowest_SSB_upper_MSEcomp);
-        lowestSSB_low_data.push(el.lowest_SSB_lower_MSEcomp);
+        lowestSSB_data.push(el.lowest_SSB_median_MSEcomp/1e+9);
+        lowestSSB_high_data.push(el.lowest_SSB_upper_MSEcomp/1e+9);
+        lowestSSB_low_data.push(el.lowest_SSB_lower_MSEcomp/1e+9);
     });
     lowestSSBOption.series[0].data = lowestSSB_data;
     lowestSSBOption.series.push(getErrorOption(lowestSSB_low_data,lowestSSB_high_data));
@@ -1429,8 +1487,8 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
         seriesData.value = [];
         seriesData.value.push(el.catch_var_MSEcomp_median);
         seriesData.value.push(el.total_catch_MSEcomp_median);
-        seriesData.value.push(el.terminal_SSB_MSEcomp_median);
-        seriesData.value.push(el.lowest_SSB_MSEcomp_median);
+        seriesData.value.push(el.terminal_SSB_MSEcomp_median/1e+9);
+        seriesData.value.push(el.lowest_SSB_MSEcomp_median/1e+9);
         seriesData.value.push(el.percent_green_MSEcomp);
 
         catchMax = Math.max(catchMax, el.total_catch_MSEcomp_median);
@@ -1541,18 +1599,18 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     privateCatchChart.setOption(privateCatchOption);
 
     $.each(mseComp,function(index, el) {
-        ssb_first_data.push(el.total_SSB_first5median_median);
-        ssb_first_high_data.push(el.total_SSB_first5median_upper);
-        ssb_first_low_data.push(el.total_SSB_first5median_lower);
+        ssb_first_data.push(el.total_SSB_first5median_median/1e+9);
+        ssb_first_high_data.push(el.total_SSB_first5median_upper/1e+9);
+        ssb_first_low_data.push(el.total_SSB_first5median_lower/1e+9);
     });
     ssbfirst_option.series[0].data = ssb_first_data;
     ssbfirst_option.series.push(getErrorOption(ssb_first_low_data,ssb_first_high_data));
     SSBGulfFirstChart.setOption(ssbfirst_option);
 
     $.each(mseComp,function(index, el) {
-        ssb_last_data.push(el.total_SSB_last5median_median);
-        ssb_last_high_data.push(el.total_SSB_last5median_upper);
-        ssb_last_low_data.push(el.total_SSB_last5median_lower);
+        ssb_last_data.push(el.total_SSB_last5median_median/1e+9);
+        ssb_last_high_data.push(el.total_SSB_last5median_upper/1e+9);
+        ssb_last_low_data.push(el.total_SSB_last5median_lower/1e+9);
     });
     ssbLast_option.series[0].data = ssb_last_data;
     ssbLast_option.series.push(getErrorOption(ssb_last_low_data,ssb_last_high_data));
@@ -1785,6 +1843,4 @@ function drawChart(mseNames,mseSingleLists,mseComp,scenarios){
     recrRadar_option.radar.indicator[7].max = recrDisallMax;
     recrRadarChart.setOption(recrRadar_option);
 }
-
-
 

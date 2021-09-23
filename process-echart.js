@@ -33,8 +33,8 @@ var txSeasonPlot = echarts.init(document.getElementById('tx-seas-length-chart'))
 //https://www.cnblogs.com/zhxuxu/p/10634392.html
 //function to return scientific notation of value
 function toScientific(value) {
-	var res = value.toString ();
-	var numN1 = 0;
+	var res = value.toString ();                                            
+	var numN1 = 0; 
 	var numN2 = 1;
 	var num1 = 0;
 	var num2 = 0;
@@ -45,12 +45,12 @@ function toScientific(value) {
 		if (t1)
 		   num1 ++;
 		else
-		   num2 ++;
+		   num2 ++;                                                                                              
 	}
-
+												   
 	if (Math.abs (value) <1 && res.length> 4)
 	{
-		for (var i = 2; i <res.length; i ++) {
+		for (var i = 2; i <res.length; i ++) {                                              
 			if (res [i] == "0") {
 				numN2 ++;
 			} else if (res [i] == ".")
@@ -58,7 +58,7 @@ function toScientific(value) {
 			else
 				break;
 		}
-		var v = parseFloat (value);
+		var v = parseFloat (value);                                                
 		v = v * Math.pow (10, numN2);
 		return v.toString () + "e-" + numN2;
 	} else if (num1> 4)
@@ -67,13 +67,13 @@ function toScientific(value) {
 			numN1 = num1-2;
 		else
 			numN1 = num1-1;
-		var v = parseFloat (value);
+		var v = parseFloat (value);                                                
 		v = v / Math.pow (10, numN1);
 		if (num2> 4)
 			v = v.toFixed (4);
 		return v.toString () + "e+" + numN1;
 	} else
-		return parseFloat (value);
+		return parseFloat (value);                                                                                  
 }
 
 function drawChart(chartdata){
@@ -111,19 +111,18 @@ function drawChart(chartdata){
 	var fed_forhire_median_data = [];
 	var fed_forhire_high_data = [];
 
-	var state_source_data = [];
-	var state_private_xAxistData = ['year'];
-	var state_AL_data = ['AL'];
-	var state_FL_data = ['FL'];
-	var state_LA_data = ['LA'];
-	var state_MS_data = ['MS'];
-	var state_TX_data = ['*TX'];
-
+	var state_private_xAxistData = [];
+	var state_AL_data = [];
+	var state_FL_data = [];
+	var state_LA_data = [];
+	var state_MS_data = [];
+	var state_TX_data = [];
+	
 
     var kobe_median_data = [];
 	var start_projection = $('#start_projection').find("input").val() || "2016";
 	start_projection = start_projection.substring(0,4);
-
+	
 	var recrStack_xAxisData = [];
 	var recrStack_E_data = [];
 	var recrStack_W_data = [];
@@ -148,7 +147,7 @@ function drawChart(chartdata){
     var private_low_data = [];
     var private_median_data = [];
 	var private_high_data = [];
-
+	
 	var f_xAxisData = [];
     var f_low_data = [];
     var f_median_data = [];
@@ -218,7 +217,7 @@ function drawChart(chartdata){
     var  TX_seas_low_data = [];
     var  TX_seas_median_data = [];
 	var  TX_seas_high_data = [];
-
+	
 	//Total Catch & Total SSB
 	var totalCatchOption = {
 
@@ -233,8 +232,8 @@ function drawChart(chartdata){
 			show: false,
 			type: 'continuous',
 			seriesIndex: 1,
-			min: 800000000000,
-			max: 1800000000000
+			min: 800,
+			max: 1800
 		}],
 
 
@@ -250,9 +249,11 @@ function drawChart(chartdata){
 			trigger: 'axis'
 		},
 		xAxis: [{
-			data: []
+			data: [],
+			name: 'Year'
 		}, {
 			data: [],
+			name: 'Year',
 			gridIndex: 1
 		}],
 		yAxis: [{
@@ -272,7 +273,7 @@ function drawChart(chartdata){
 				}
 			},
 			max: function (value) {
-				var newVal = value.max * 1.2;
+				var newVal = value.max * 1.2*1e+9;
 				return Math.round(newVal/1e+12)*1e+3
 			}
 		}],
@@ -315,8 +316,8 @@ function drawChart(chartdata){
 			padding: [40, 20]
 		},
 		grid: {
-			left: '7%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			top:'15%',
 			containLabel: true
@@ -325,7 +326,8 @@ function drawChart(chartdata){
 			{
 				type: 'category',
 				boundaryGap: false,
-				data: []
+				data: [],
+				name: 'Year'
 			}
 		],
 		yAxis: [
@@ -340,7 +342,7 @@ function drawChart(chartdata){
 		],
 		series: [
 			{
-				name: 'Private',
+				name: 'Private Angling',
 				type: 'line',
 				stack: '1',
 				areaStyle: {},
@@ -391,8 +393,8 @@ function drawChart(chartdata){
 			padding: [40, 20]
 		},
 		grid: {
-			left: '7%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			top:'15%',
 			containLabel: true
@@ -401,7 +403,8 @@ function drawChart(chartdata){
 			{
 				type: 'category',
 				boundaryGap: false,
-				data: []
+				data: [],
+				name: 'Year'
 			}
 		],
 		yAxis: [
@@ -414,7 +417,7 @@ function drawChart(chartdata){
 					}
 				},
 				max: function (value) {
-					var newVal = value.max * 1.2;
+					var newVal = value.max * 1.2 *1e+9;
 					return Math.round(newVal/1e+12)*1e+3;
 				}
 			}
@@ -466,8 +469,8 @@ function drawChart(chartdata){
 			padding: [40, 20]
 		},
 		grid: {
-			left: '7%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			top:'15%',
 			containLabel: true
@@ -476,7 +479,8 @@ function drawChart(chartdata){
 			{
 				type: 'category',
 				boundaryGap: false,
-				data: []
+				data: [],
+				name: 'Year'
 			}
 		],
 		yAxis: [
@@ -536,8 +540,8 @@ function drawChart(chartdata){
 			padding: [40, 20]
 		},
 		grid: {
-			left: '7%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			top:'15%',
 			containLabel: true
@@ -546,7 +550,8 @@ function drawChart(chartdata){
 			{
 				type: 'category',
 				boundaryGap: false,
-				data: []
+				data: [],
+				name: 'Year'
 			}
 		],
 		yAxis: [
@@ -555,7 +560,7 @@ function drawChart(chartdata){
 				name:'Catch (1000 lb)',
 				max: function (value) {
 					var newVal = value.max * 1.2;
-					return Math.round(newVal/100)*100
+					return Math.round(newVal/1000)*1000
 				}
 			}
 		],
@@ -565,7 +570,7 @@ function drawChart(chartdata){
 				type: 'line',
 				stack: '1',
 				areaStyle: {},
-				data: [],
+			data: [],
 				color:'#bda29a'
 			},
 			{
@@ -606,8 +611,8 @@ function drawChart(chartdata){
 			padding: [40, 20]
 		},
 		grid: {
-			left: '7%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			top:'15%',
 			containLabel: true
@@ -616,7 +621,8 @@ function drawChart(chartdata){
 			{
 				type: 'category',
 				boundaryGap: false,
-				data: []
+				data: [],
+				name: 'Year'
 			}
 		],
 		yAxis: [
@@ -625,7 +631,7 @@ function drawChart(chartdata){
 				name:'Catch (1000 lb)',
 				max: function (value) {
 					var newVal = value.max * 1.2;
-					return Math.round(newVal/100)*100
+					return Math.round(newVal/1000)*1000
 				}
 			}
 		],
@@ -731,14 +737,15 @@ function drawChart(chartdata){
 		},
 		xAxis: {
 			type: 'category',
-			data: []
+			data: [],
+			name: 'Year'
 		},
 		yAxis: {
 			type: 'value',
 			name:'Season Length (days)',
 			max: function (value) {
 				var newVal = value.max * 1.2;
-				return Math.round(newVal/10)*10
+				return Math.round(newVal/100)*100
 			}
 		},
 		tooltip : {
@@ -758,82 +765,72 @@ function drawChart(chartdata){
 
 	//State Private Angling Season Length
 	var statePrivLength_option = {
-		title:[
-			{
-				left: 'center',
-				text:'State Private Angling Season Length'
-			}
-		],
-		legend: {top:'10%'},
-		tooltip: {
-			trigger: 'axis',
-			showContent: false
+		title:{
+			left: 'center',
+			text:'State Private Angling Season Length'
 		},
-		dataset: {
-			source: [
-				['year'],
-				['AL'],
-				['FL'],
-				['LA'],
-				['*TX'],
-				['MS']
-			]
+		tooltip:{
+			trigger: 'axis'
 		},
-		xAxis: {type: 'category'},
+		legend: {
+			data:['AL','FL','LA','MS','*TX'],
+			align:'right',
+                        padding: [40, 20]
+		},
+		grid:{
+			left: '5%',
+                        right: '10%',
+                        bottom: '3%',
+                        top:'15%',
+                        containLabel: true
+		},
+		xAxis: {
+			type: 'category',
+			data: [],
+			name: 'Year'
+		},
 		yAxis: {
-			gridIndex: 0,
-			name:'Season Length (days)',
-			max: function (value) {
-				var newVal = value.max * 1.2;
-				return Math.round(newVal/10)*10
-			}
-		},
-		grid: [
-			{top: '60%'},
-
-		],
+			type: 'value',
+                        name:'Season Length (days)',
+                        max: function (value) {
+                                var newVal = value.max * 1.2;
+                                return Math.round(newVal/100)*100
+                        }
+                },
 		series: [
-			{type: 'line', smooth: true, seriesLayoutBy: 'row'},
-			{type: 'line', smooth: true, seriesLayoutBy: 'row'},
-			{type: 'line', smooth: true, seriesLayoutBy: 'row'},
-			{type: 'line', smooth: true, seriesLayoutBy: 'row'},
-			{type: 'line', smooth: true, seriesLayoutBy: 'row'},
-			{
-				type: 'pie',
-				id: 'pie',
-				radius: '30%',
-				center: ['50%', '35%'],
-				label: {
-					formatter: '{b}: {@2016} ({d}%)'
-				},
-				encode: {
-					itemName: 'year',
-					value: '2016',
-					tooltip: '2016'
-				}
-			}
+	                {
+				name: 'AL',
+				type: 'line', 
+				step: 'middle',
+				data: []
+			},
+                        {
+                                name: 'FL',
+                                type: 'line', 
+                                step: 'middle',
+                                data: []
+                        },
+                        {       
+                                name: 'LA',
+                                type: 'line',
+                                step: 'middle',
+                                data: []
+                        },
+                        {     
+                                name: 'MS',
+                                type: 'line',
+                                step: 'middle',
+                                data: []
+                        },
+                        {
+                                name: '*TX',
+                                type: 'line',
+                                step: 'middle',
+                                data: []
+                        }
 		]
-	};
-
-	statePrivLength.on('updateAxisPointer', function (event) {
-		var xAxisInfo = event.axesInfo[0];
-		if (xAxisInfo) {
-			var dimension = xAxisInfo.value + 1;
-			statePrivLength.setOption({
-				series: {
-					id: 'pie',
-					label: {
-						formatter: '{b}: {@[' + dimension + ']} ({d}%)'
-					},
-					encode: {
-						value: dimension,
-						tooltip: dimension
-					}
-				}
-			});
-		}
-	});
-
+	};	
+	
 	kobe_option = {
     title: {
 		left: 'center',
@@ -866,9 +863,9 @@ function drawChart(chartdata){
                     fontSize:9
                 }
             },
-
+            
         },
-        nameLocation:'middle',
+        nameLocation:'middle',        
     },
     yAxis: {
         min:0,
@@ -888,7 +885,7 @@ function drawChart(chartdata){
                     fontSize:9
                 }
             },
-
+            
         },
 		nameLocation:'middle',
 
@@ -997,15 +994,16 @@ function drawChart(chartdata){
                  [2,1],
             ]
         },
-
-
+        
+        
     ]
 };
 
-
+	
 	//Recruitment: East & West
 	var recruitmentOption = {
 		title: {
+			left: 'center',
 			text: 'Recruitment in the East and West'
 		},
 		tooltip: {
@@ -1023,8 +1021,8 @@ function drawChart(chartdata){
 			padding: [40, 20]
 		},
 		grid: {
-			left: '9%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			top:'15%',
 			containLabel: true
@@ -1033,17 +1031,23 @@ function drawChart(chartdata){
 			{
 				type: 'category',
 				boundaryGap: false,
-				data: []
+				data: [],
+				name: 'Year'
 			}
 		],
 		yAxis: [
 			{
 				type: 'value',
-				name:'Recruitment (1000s)',
-				max: function (value) {
-					var newVal = value.max * 1.2;
-					return Math.round(newVal/10000)*10000
-				}
+				name:'Recruitment (millions)',
+ 				axisLabel: {
+                                        formatter: function (value){
+                                                return toScientific(value);
+                                        }
+                                },
+                                max: function (value) {
+                                        var newVal = value.max * 1.2;
+                                        return Math.round(newVal/1e+2)*1e+2;
+                                }
 			}
 		],
 		series: [
@@ -1075,7 +1079,8 @@ function drawChart(chartdata){
 	//Commercial Catch
 	var	comm_option = {
 	    title: {
-	        text: 'Commercial Catch'
+	        left: 'center',
+		text: 'Commercial Catch'
 	    },
 	    tooltip: {
 	        trigger: 'axis',
@@ -1095,16 +1100,16 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-              return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-						  }
+                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+            }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
 	        show:false,
 	    },
 	    grid: {
-	        left: '7%',
-	        right: '4%',
+	        left: '5%',
+	        right: '10%',
 	        bottom: '3%',
 	        containLabel: true
 	    },
@@ -1112,6 +1117,7 @@ function drawChart(chartdata){
 	        type: 'category',
 	        boundaryGap: false,
 	        data: [],
+		name: 'Year'
 	    },
 	    yAxis: {
 	        type: 'value',
@@ -1170,7 +1176,8 @@ function drawChart(chartdata){
 	//Recreational Catch
 	var recr_option = {
 	    title: {
-	        text: 'Recreation Catch'
+	        left: 'center',
+		text: 'Recreation Catch'
 	    },
 	    tooltip: {
 	        trigger: 'axis',
@@ -1190,16 +1197,16 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-							 }
+                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+            }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
 	        show:false,
 	    },
 	    grid: {
-	        left: '7%',
-	        right: '4%',
+	        left: '5%',
+	        right: '10%',
 	        bottom: '3%',
 	        containLabel: true
 	    },
@@ -1207,6 +1214,7 @@ function drawChart(chartdata){
 	        type: 'category',
 	        boundaryGap: false,
 	        data: [],
+		name: 'Year'
 	    },
 	    yAxis: {
 	        type: 'value',
@@ -1262,9 +1270,10 @@ function drawChart(chartdata){
 	    ]
 	};
 
-	//For Hire Catch
+	//For-hire Catch
 	var hire_option = {
 	    title: {
+		left: 'center',
 	        text: 'For-hire Catch'
 	    },
 	    tooltip: {
@@ -1285,16 +1294,16 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-							 }
+                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+            }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
 	        show:false,
 	    },
 	    grid: {
-	        left: '7%',
-	        right: '4%',
+	        left: '5%',
+	        right: '10%',
 	        bottom: '3%',
 	        containLabel: true
 	    },
@@ -1302,13 +1311,14 @@ function drawChart(chartdata){
 	        type: 'category',
 	        boundaryGap: false,
 	        data: [],
+		name: 'Year'
 	    },
 	    yAxis: {
 	        type: 'value',
 			name: 'Catch (1000 lb)',
 			max: function (value) {
 				var newVal = value.max * 1.2;
-				return Math.round(newVal/100)*100
+				return Math.round(newVal/1000)*1000
 			}
 	    },
 	    series: [
@@ -1360,7 +1370,8 @@ function drawChart(chartdata){
 	//Private Catch
 	var private_option = {
 	    title: {
-	        text: 'Private Catch'
+		left: 'center',
+	        text: 'Private Angling Catch'
 	    },
 	    tooltip: {
 	        trigger: 'axis',
@@ -1380,16 +1391,16 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-							 }
+                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+            }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
 	        show:false,
 	    },
 	    grid: {
-	        left: '7%',
-	        right: '4%',
+	        left: '5%',
+	        right: '10%',
 	        bottom: '3%',
 	        containLabel: true
 	    },
@@ -1397,6 +1408,7 @@ function drawChart(chartdata){
 	        type: 'category',
 	        boundaryGap: false,
 	        data: [],
+		name: 'Year'
 	    },
 	    yAxis: {
 	        type: 'value',
@@ -1455,6 +1467,7 @@ function drawChart(chartdata){
 	//General Fishing Mortality
 	var f_option = {
 	    title: {
+		left: 'center',
 	        text: 'General Fishing Mortality'
 	    },
 	    tooltip: {
@@ -1475,16 +1488,16 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-							 }
+                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+            }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
 	        show:false,
 	    },
 	    grid: {
-	        left: '11%',
-	        right: '7%',
+	        left: '5%',
+	        right: '10%',
 	        bottom: '3%',
 	        containLabel: true
 	    },
@@ -1492,6 +1505,7 @@ function drawChart(chartdata){
 	        type: 'category',
 	        boundaryGap: false,
 	        data: [],
+		name: 'Year'
 	    },
 	    yAxis: {
 	        type: 'value',
@@ -1568,12 +1582,136 @@ function drawChart(chartdata){
 	    ]
 	};
 
+	
+ 	//SSB for the Gulf
+        var ssbGulf_option = {
+            title: {
+		left: 'center',
+                text: 'Total Spawning Stock Biomass'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                type: 'cross',
+                animation: false,
+                label: {
+                    backgroundColor: '#ccc',
+                    borderColor: '#aaa',
+                    borderWidth: 1,
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    textStyle: {
+                        color: '#222'
+                    }
+                }
+            },
+	    formatter: function (params) {
+                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+            }
+            },
+            legend: {
+                data:['F_std','HL_E','HL_W'],
+                show:false,
+            },
+            grid: {
+                left: '5%',
+                right: '10%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: [],
+		name: 'Year'
+            },
+            yAxis: {
+                type: 'value',
+                        name: 'SSB (trillion eggs)',
+                        axisLabel: {
+                                formatter: function (value){
+                                        return toScientific(value);
+                                }
+                        },
+                        max: function (value) {
+                                var newVal = value.max * 1.2*1e+9;
+                                return Math.round(newVal/1e+12)*1e+3;
+                        }
+            },
+	    series: [
+                {
+                    name:'Lower 2.5%',
+                    type:'line',
+                    stack: '1',
+                    lineStyle: {
+                        normal: {
+                            opacity: 0
+                        }
+                    },
+                    symbol: 'none',
+                    data:[],
+                },
+                {
+                    name:'Median',
+                    type:'line',
+                    lineStyle: {
+                        normal: {
+
+                        }
+                    },
+                    showSymbol: false,
+                    data:[]
+                },
+                {
+                    name:'Upper 97.5%',
+                    type:'line',
+                    stack: '1',
+                    lineStyle: {
+                        normal: {
+                            opacity: 0
+                        }
+                    },
+                    areaStyle: {
+                        normal: {
+                            color: '#ccc',
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        }
+                    },
+                    data:[],
+                    symbol: 'none'
+		 },
+                 {
+                            	name:'ssb(msy)',
+                                type:'line',
+                                data:[],
+                                showSymbol:false,
+                                markLine:{
+                                        symbol:['none','arrow'],
+                                        itemStyle:{normal:{color:'#dc143c'}},
+                                        data:[
+                                                {
+                                                        name: 'SSBMSY',
+                                                        yAxis: 1.23e+3
+                                                }
+                                        ],
+                                        symbol:'none',
+                                        label:{
+                                                formatter: function (params){
+                                                        return params.data.name + '\n' + toScientific(params.value);
+                                                }
+                                        },
+                                },
+                        }
+            ]
+        };
 
 
 	//SSB East
 	var ssbE_option = {
 	    title: {
-	        text: 'SSB in Stock1'
+		left: 'center',
+	        text: 'Spawning Stock Biomass: East'
 	    },
 	    tooltip: {
 	        trigger: 'axis',
@@ -1593,16 +1731,16 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-							 }
+                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+            }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
 	        show:false,
 	    },
 	    grid: {
-	        left: '7%',
-	        right: '4%',
+	        left: '5%',
+	        right: '10%',
 	        bottom: '3%',
 	        containLabel: true
 	    },
@@ -1610,6 +1748,7 @@ function drawChart(chartdata){
 	        type: 'category',
 	        boundaryGap: false,
 	        data: [],
+		name: 'Year'
 	    },
 	    yAxis: {
 	        type: 'value',
@@ -1620,7 +1759,7 @@ function drawChart(chartdata){
 				}
 			},
 			max: function (value) {
-				var newVal = value.max * 1.2;
+				var newVal = value.max * 1.2*1e+9;
 				return Math.round(newVal/1e+12)*1e+3;
 			}
 	    },
@@ -1673,7 +1812,8 @@ function drawChart(chartdata){
 	//SSB West
 	var ssbW_option = {
 	    title: {
-	        text: 'Spawning Stock Biomass in West Gulf'
+		left: 'center',
+	        text: 'Spawning Stock Biomass: West'
 	    },
 	    tooltip: {
 	        trigger: 'axis',
@@ -1693,16 +1833,16 @@ function drawChart(chartdata){
                 }
             },
             formatter: function (params) {
-                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-							 }
+                return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+            }
 	    },
 	    legend: {
 	        data:['F_std','HL_E','HL_W'],
 	        show:false,
 	    },
 	    grid: {
-	        left: '7%',
-	        right: '4%',
+	        left: '5%',
+	        right: '10%',
 	        bottom: '3%',
 	        containLabel: true
 	    },
@@ -1710,6 +1850,7 @@ function drawChart(chartdata){
 	        type: 'category',
 	        boundaryGap: false,
 	        data: [],
+		name: 'Year'
 	    },
 	    yAxis: {
 	        type: 'value',
@@ -1720,7 +1861,7 @@ function drawChart(chartdata){
 				}
 			},
 			max: function (value) {
-				var newVal = value.max * 1.2;
+				var newVal = value.max * 1.2*1e+9;
 				return Math.round(newVal/1e+12)*1e+3;
 			}
 	    },
@@ -1770,131 +1911,11 @@ function drawChart(chartdata){
 	    ]
 	};
 
-	//SSB for the Gulf
-	var ssbGulf_option = {
-	    title: {
-	        text: 'Spawning Stock Biomass'
-	    },
-	    tooltip: {
-	        trigger: 'axis',
-	        axisPointer: {
-                type: 'cross',
-                animation: false,
-                label: {
-                    backgroundColor: '#ccc',
-                    borderColor: '#aaa',
-                    borderWidth: 1,
-                    shadowBlur: 0,
-                    shadowOffsetX: 0,
-                    shadowOffsetY: 0,
-                    textStyle: {
-                        color: '#222'
-                    }
-                }
-            },
-            formatter: function (params) {
-                 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-							 }
-	    },
-	    legend: {
-	        data:['F_std','HL_E','HL_W'],
-	        show:false,
-	    },
-	    grid: {
-	        left: '7%',
-	        right: '15%',
-	        bottom: '3%',
-	        containLabel: true
-	    },
-	    xAxis: {
-	        type: 'category',
-	        boundaryGap: false,
-	        data: [],
-	    },
-	    yAxis: {
-	        type: 'value',
-			name: 'SSB (trillion eggs)',
-			axisLabel: {
-				formatter: function (value){
-					return toScientific(value);
-				}
-			},
-			max: function (value) {
-				var newVal = value.max * 1.2;
-				return Math.round(newVal/1e+12)*1e+3;
-			}
-	    },
-	    series: [
-	        {
-	            name:'Lower 2.5%',
-	            type:'line',
-	            stack: '1',
-	            lineStyle: {
-	                normal: {
-	                    opacity: 0
-	                }
-	            },
-	            symbol: 'none',
-	            data:[],
-	        },
-	        {
-	            name:'Median',
-	            type:'line',
-	            lineStyle: {
-	                normal: {
-
-	                }
-	            },
-	            showSymbol: false,
-	            data:[]
-	        },
-	        {
-	            name:'Upper 97.5%',
-	            type:'line',
-	            stack: '1',
-	            lineStyle: {
-	                normal: {
-	                    opacity: 0
-	                }
-	            },
-	            areaStyle: {
-	                normal: {
-	                    color: '#ccc',
-	                    shadowColor: 'rgba(0, 0, 0, 0.5)',
-	                }
-	            },
-	            data:[],
-	            symbol: 'none'
-
-			},
-			{
-				name:'ssb(msy)',
-				type:'line',
-				data:[],
-				showSymbol:false,
-				markLine:{
-					symbol:['none','arrow'],
-					itemStyle:{normal:{color:'#dc143c'}},
-					data:[
-						{
-							name: 'SSBMSY',
-							yAxis: 1.23e+12
-						}
-					],
-					symbol:'none',
-					label:{
-						formatter: function (params){
-							return params.data.name + '\n' + toScientific(params.value);
-						}
-					},
-				},
-			}
-	    ]
-	};
 
 	//AL Private Angling Catch
 	var al_catch_option = {
 		title: {
+			left: 'center',
 			text: 'Private Angling Catch in AL'
 		},
 		tooltip: {
@@ -1915,16 +1936,16 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			 }
+				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			}
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
 			show:false,
 		},
 		grid: {
-			left: '7%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			containLabel: true
 		},
@@ -1932,6 +1953,7 @@ function drawChart(chartdata){
 			type: 'category',
 			boundaryGap: false,
 			data: [],
+			name: 'Year'
 		},
 		yAxis: {
 			type: 'value',
@@ -1990,6 +2012,7 @@ function drawChart(chartdata){
 	//AL Private Angling Season Length
 	var al_season_option = {
 		title: {
+			left: 'center',
 			text: 'Season Length for Private Angling in AL'
 		},
 		tooltip: {
@@ -2010,16 +2033,16 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			 }
+				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			}
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
 			show:false,
 		},
 		grid: {
-			left: '9%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			containLabel: true
 		},
@@ -2027,6 +2050,7 @@ function drawChart(chartdata){
 			type: 'category',
 			boundaryGap: false,
 			data: [],
+			name: 'Year'
 		},
 		yAxis: {
 			type: 'value',
@@ -2085,6 +2109,7 @@ function drawChart(chartdata){
 	//FL Private Angling Catch
 	var fl_catch_option = {
 		title: {
+			left: 'center',
 			text: 'FL Private Angling Catch'
 		},
 		tooltip: {
@@ -2105,16 +2130,16 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			 }
+				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			}
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
 			show:false,
 		},
 		grid: {
-			left: '7%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			containLabel: true
 		},
@@ -2122,13 +2147,14 @@ function drawChart(chartdata){
 			type: 'category',
 			boundaryGap: false,
 			data: [],
+			name: 'Year'
 		},
 		yAxis: {
 			type: 'value',
 			name: 'Catch(1000 lb)',
 			max: function (value) {
 				var newVal = value.max * 1.2;
-				return Math.round(newVal/1000)*1000;
+				return Math.round(newVal/100)*100;
 			}
 		},
 		series: [
@@ -2180,6 +2206,7 @@ function drawChart(chartdata){
 	//FL Private Angling Season Length
 	var fl_season_option = {
 		title: {
+			left: 'center',
 			text: 'FL Private Angling Season Length'
 		},
 		tooltip: {
@@ -2200,16 +2227,16 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			 }
+				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			}
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
 			show:false,
 		},
 		grid: {
-			left: '9%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			containLabel: true
 		},
@@ -2217,6 +2244,7 @@ function drawChart(chartdata){
 			type: 'category',
 			boundaryGap: false,
 			data: [],
+			name: 'Year'
 		},
 		yAxis: {
 			type: 'value',
@@ -2275,6 +2303,7 @@ function drawChart(chartdata){
 	//LA Private Angling Catch
 	var la_catch_option = {
 		title: {
+			left: 'center',
 			text: 'LA Private Angling Catch'
 		},
 		tooltip: {
@@ -2295,16 +2324,16 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			 }
+				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			}
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
 			show:false,
 		},
 		grid: {
-			left: '7%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			containLabel: true
 		},
@@ -2312,6 +2341,7 @@ function drawChart(chartdata){
 			type: 'category',
 			boundaryGap: false,
 			data: [],
+			name: 'Year'
 		},
 		yAxis: {
 			type: 'value',
@@ -2370,6 +2400,7 @@ function drawChart(chartdata){
 	//LA Private Angling Season Length
 	var la_season_option = {
 		title: {
+			left: 'center',
 			text: 'LA Private Angling Season Length'
 		},
 		tooltip: {
@@ -2390,16 +2421,16 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			 }
+				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			}
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
 			show:false,
 		},
 		grid: {
-			left: '9%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			containLabel: true
 		},
@@ -2407,6 +2438,7 @@ function drawChart(chartdata){
 			type: 'category',
 			boundaryGap: false,
 			data: [],
+			name: 'Year'
 		},
 		yAxis: {
 			type: 'value',
@@ -2465,6 +2497,7 @@ function drawChart(chartdata){
 	//MS Private Angling Catch
 	var ms_catch_option = {
 		title: {
+			left: 'center',
 			text: 'MS Private Angling Catch'
 		},
 		tooltip: {
@@ -2485,16 +2518,16 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			 }
+				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			}
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
 			show:false,
 		},
 		grid: {
-			left: '7%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			containLabel: true
 		},
@@ -2502,6 +2535,7 @@ function drawChart(chartdata){
 			type: 'category',
 			boundaryGap: false,
 			data: [],
+			name: 'Year'
 		},
 		yAxis: {
 			type: 'value',
@@ -2560,6 +2594,7 @@ function drawChart(chartdata){
 	//MS Private Angling Season Length
 	var ms_season_option = {
 		title: {
+			left: 'center',
 			text: 'MS Private Angling Season Length'
 		},
 		tooltip: {
@@ -2580,16 +2615,16 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			 }
+				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			}
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
 			show:false,
 		},
 		grid: {
-			left: '9%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			containLabel: true
 		},
@@ -2597,6 +2632,7 @@ function drawChart(chartdata){
 			type: 'category',
 			boundaryGap: false,
 			data: [],
+			name: 'Year'
 		},
 		yAxis: {
 			type: 'value',
@@ -2652,10 +2688,11 @@ function drawChart(chartdata){
 		]
 	};
 
-	//TX Private Angling Season Length in Federal Water
+	//TX Private Angling Catch
 	var tx_catch_option = {
 		title: {
-			text: 'Season Length for Private Angling in TX Federal Water'
+			left: 'center',
+			text: 'TX Private Angling Catch in Federal Water'
 		},
 		tooltip: {
 			trigger: 'axis',
@@ -2675,16 +2712,16 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			 }
+				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			}
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
 			show:false,
 		},
 		grid: {
-			left: '7%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			containLabel: true
 		},
@@ -2692,13 +2729,14 @@ function drawChart(chartdata){
 			type: 'category',
 			boundaryGap: false,
 			data: [],
+			name: 'Year'
 		},
 		yAxis: {
 			type: 'value',
 			name: 'Catch (1000 lb)',
 			max: function (value) {
 				var newVal = value.max * 1.2;
-				return Math.round(newVal/10)*10;
+				return Math.round(newVal/100)*100;
 			}
 		},
 		series: [
@@ -2750,6 +2788,7 @@ function drawChart(chartdata){
 	//TX Private Angling Season Length in Federal Water
 	var tx_season_option = {
 		title: {
+			left: 'center',
 			text: 'TX Private Angling Season Length in Federal Water'
 		},
 		tooltip: {
@@ -2770,16 +2809,16 @@ function drawChart(chartdata){
 				}
 			},
 			formatter: function (params) {
-				 return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
-			 }
+				return params[0].axisValue + '<br />' + params[2].seriesName+" : "+(params[2].value+params[0].value)+ '<br />' + params[1].seriesName+" : "+params[1].value+ '<br />'+ params[0].seriesName+" : " + params[0].value;
+			}
 		},
 		legend: {
 			data:['F_std','HL_E','HL_W'],
 			show:false,
 		},
 		grid: {
-			left: '9%',
-			right: '4%',
+			left: '5%',
+			right: '10%',
 			bottom: '3%',
 			containLabel: true
 		},
@@ -2787,6 +2826,7 @@ function drawChart(chartdata){
 			type: 'category',
 			boundaryGap: false,
 			data: [],
+			name: 'Year'
 		},
 		yAxis: {
 			type: 'value',
@@ -2888,13 +2928,13 @@ function drawChart(chartdata){
 			totalSSB_xAxisData.push(el.year);
 			totalSSB_data.push(el.total_SSB_median/1e+9);
 		});
-
+		
 		totalCatchOption.xAxis[0].data = totalCatch_xAxisData;
 		totalCatchOption.series[0].data = totalCatch_data;
 		totalCatchOption.xAxis[1].data = totalSSB_xAxisData;
 		totalCatchOption.series[1].data = totalSSB_data;
 		totalCatch.setOption(totalCatchOption);
-
+		
 		$.each(chartdata,function(index, el) {
         	catchStack_xAxisData.push(el.year);
 			catchStack_comm_data.push(el.comm_catch_mean);
@@ -2909,8 +2949,8 @@ function drawChart(chartdata){
 
 		$.each(chartdata,function(index, el) {
         	ssbStack_xAxisData.push(el.year);
-			ssbStack_E_data.push(el.SSB_1_mean);
-			ssbStack_W_data.push(el.SSB_2_mean);
+			ssbStack_E_data.push(el.SSB_1_mean/1e+9);
+			ssbStack_W_data.push(el.SSB_2_mean/1e+9);
         });
         ssbOption.xAxis[0].data = ssbStack_xAxisData;
         ssbOption.series[0].data = ssbStack_W_data;
@@ -2959,21 +2999,19 @@ function drawChart(chartdata){
 		fedForhireLength.setOption(fedForhire_option);
 
 		$.each(chartdata,function(index, el) {
-        	state_private_xAxistData.push(el.year.toString());
+        	state_private_xAxistData.push(el.year);
 			state_AL_data.push(el.true_private_AL_season_length_median);
 			state_FL_data.push(el.true_private_FL_season_length_median);
 			state_LA_data.push(el.true_private_LA_season_length_median);
 			state_MS_data.push(el.true_private_MS_season_length_median);
 			state_TX_data.push(el.true_private_TX_season_length_median);
 		});
-
-		state_source_data.push(state_private_xAxistData);
-		state_source_data.push(state_AL_data);
-		state_source_data.push(state_FL_data);
-		state_source_data.push(state_LA_data);
-		state_source_data.push(state_MS_data);
-		state_source_data.push(state_TX_data);
-		statePrivLength_option.dataset.source = state_source_data;
+		statePrivLength_option.xAxis.data = state_private_xAxistData;
+		statePrivLength_option.series[0].data = state_AL_data;
+		statePrivLength_option.series[1].data = state_FL_data;
+		statePrivLength_option.series[2].data = state_LA_data;
+		statePrivLength_option.series[3].data = state_MS_data;
+		statePrivLength_option.series[4].data = state_TX_data;
 		statePrivLength.setOption(statePrivLength_option);
 
 		var xMax = 2;
@@ -2996,8 +3034,8 @@ function drawChart(chartdata){
 
 		$.each(chartdata,function(index, el) {
         	recrStack_xAxisData.push(el.year);
-			recrStack_E_data.push(el.R_1_mean);
-			recrStack_W_data.push(el.R_2_mean);
+			recrStack_E_data.push(el.R_1_mean/1e+3);
+			recrStack_W_data.push(el.R_2_mean/1e+3);
         });
         recruitmentOption.xAxis[0].data = recrStack_xAxisData;
         recruitmentOption.series[0].data = recrStack_W_data;
@@ -3068,11 +3106,11 @@ function drawChart(chartdata){
         f_option.series[2].data = f_high_data;
        	fChart1.setOption(f_option);
 
-		$.each(chartdata,function(index, el) {
+	$.each(chartdata,function(index, el) {
         	ssbGulf_xAxisData.push(el.year);
-			ssbGulf_low_data.push(el.SSB_total_025);
-			ssbGulf_median_data.push(el.SSB_total_median);
-			ssbGulf_high_data.push(el.SSB_total_975-el.SSB_total_025);
+			ssbGulf_low_data.push(el.SSB_total_025/1e+9);
+			ssbGulf_median_data.push(el.SSB_total_median/1e+9);
+			ssbGulf_high_data.push(el.SSB_total_975/1e+9-el.SSB_total_025/1e+9);
         });
 
         ssbGulf_option.xAxis.data = ssbGulf_xAxisData;
@@ -3081,11 +3119,11 @@ function drawChart(chartdata){
         ssbGulf_option.series[2].data = ssbGulf_high_data;
 		ssbGulfChart.setOption(ssbGulf_option);
 
-		$.each(chartdata,function(index, el) {
+	$.each(chartdata,function(index, el) {
         	ssbE_xAxisData.push(el.year);
-			ssbE_low_data.push(el.SSB_1_025);
-			ssbE_median_data.push(el.SSB_1_median);
-			ssbE_high_data.push(el.SSB_1_975-el.SSB_1_025);
+			ssbE_low_data.push(el.SSB_1_025/1e+9);
+			ssbE_median_data.push(el.SSB_1_median/1e+9);
+			ssbE_high_data.push(el.SSB_1_975/1e+9-el.SSB_1_025/1e+9);
         });
 
         ssbE_option.xAxis.data = ssbE_xAxisData;
@@ -3094,11 +3132,12 @@ function drawChart(chartdata){
         ssbE_option.series[2].data = ssbE_high_data;
 		ssbEChart1.setOption(ssbE_option);
 
-		$.each(chartdata,function(index, el) {
+
+	$.each(chartdata,function(index, el) {
         	ssbW_xAxisData.push(el.year);
-			ssbW_low_data.push(el.SSB_2_025);
-			ssbW_median_data.push(el.SSB_2_median);
-			ssbW_high_data.push(el.SSB_2_975-el.SSB_2_025);
+			ssbW_low_data.push(el.SSB_2_025/1e+9);
+			ssbW_median_data.push(el.SSB_2_median/1e+9);
+			ssbW_high_data.push(el.SSB_2_975/1e+9-el.SSB_2_025/1e+9);
         });
 
         ssbW_option.xAxis.data = ssbW_xAxisData;
@@ -3107,13 +3146,13 @@ function drawChart(chartdata){
         ssbW_option.series[2].data = ssbW_high_data;
 		ssbWChart1.setOption(ssbW_option);
 
-		$.each(chartdata,function(index, el) {
+	$.each(chartdata,function(index, el) {
         	AL_catch_xAxisData.push(el.year);
 			AL_catch_low_data.push(el.true_private_AL_catch_025);
 			AL_catch_median_data.push(el.true_private_AL_catch_median);
 			AL_catch_high_data.push(el.true_private_AL_catch_975-el.true_private_AL_catch_025);
 		});
-
+		
 		al_catch_option.xAxis.data = AL_catch_xAxisData;
         al_catch_option.series[0].data = AL_catch_low_data;
         al_catch_option.series[1].data = AL_catch_median_data;
@@ -3126,7 +3165,7 @@ function drawChart(chartdata){
 			AL_seas_median_data.push(el.true_private_AL_season_length_median);
 			AL_seas_high_data.push(el.true_private_AL_season_length_975-el.true_private_AL_season_length_025);
 		});
-
+		
 		al_season_option.xAxis.data = AL_seas_xAxisData;
         al_season_option.series[0].data = AL_seas_low_data;
         al_season_option.series[1].data = AL_seas_median_data;
@@ -3139,7 +3178,7 @@ function drawChart(chartdata){
 			FL_catch_median_data.push(el.true_private_FL_catch_median);
 			FL_catch_high_data.push(el.true_private_FL_catch_975-el.true_private_FL_catch_025);
 		});
-
+		
 		fl_catch_option.xAxis.data = FL_catch_xAxisData;
         fl_catch_option.series[0].data = FL_catch_low_data;
     	fl_catch_option.series[1].data = FL_catch_median_data;
@@ -3152,7 +3191,7 @@ function drawChart(chartdata){
 			FL_seas_median_data.push(el.true_private_FL_season_length_median);
 			FL_seas_high_data.push(el.true_private_FL_season_length_975-el.true_private_FL_season_length_025);
 		});
-
+		
 		fl_season_option.xAxis.data = FL_seas_xAxisData;
         fl_season_option.series[0].data = FL_seas_low_data;
         fl_season_option.series[1].data = FL_seas_median_data;
@@ -3165,7 +3204,7 @@ function drawChart(chartdata){
 			LA_catch_median_data.push(el.true_private_LA_catch_median);
 			LA_catch_high_data.push(el.true_private_LA_catch_975-el.true_private_LA_catch_025);
 		});
-
+		
 		la_catch_option.xAxis.data = LA_catch_xAxisData;
         la_catch_option.series[0].data = LA_catch_low_data;
     	la_catch_option.series[1].data = LA_catch_median_data;
@@ -3178,7 +3217,7 @@ function drawChart(chartdata){
 			LA_seas_median_data.push(el.true_private_LA_season_length_median);
 			LA_seas_high_data.push(el.true_private_LA_season_length_975-el.true_private_LA_season_length_025);
 		});
-
+		
 		la_season_option.xAxis.data = LA_seas_xAxisData;
         la_season_option.series[0].data = LA_seas_low_data;
         la_season_option.series[1].data = LA_seas_median_data;
@@ -3191,7 +3230,7 @@ function drawChart(chartdata){
 			MS_catch_median_data.push(el.true_private_MS_catch_median);
 			MS_catch_high_data.push(el.true_private_MS_catch_975-el.true_private_MS_catch_025);
 		});
-
+		
 		ms_catch_option.xAxis.data = MS_catch_xAxisData;
         ms_catch_option.series[0].data = MS_catch_low_data;
     	ms_catch_option.series[1].data = MS_catch_median_data;
@@ -3204,7 +3243,7 @@ function drawChart(chartdata){
 			MS_seas_median_data.push(el.true_private_MS_season_length_median);
 			MS_seas_high_data.push(el.true_private_MS_season_length_975-el.true_private_MS_season_length_025);
 		});
-
+		
 		ms_season_option.xAxis.data = MS_seas_xAxisData;
         ms_season_option.series[0].data = MS_seas_low_data;
         ms_season_option.series[1].data = MS_seas_median_data;
@@ -3217,20 +3256,20 @@ function drawChart(chartdata){
 			TX_catch_median_data.push(el.true_private_TX_catch_median);
 			TX_catch_high_data.push(el.true_private_TX_catch_975-el.true_private_TX_catch_025);
 		});
-
+		
 		tx_catch_option.xAxis.data = TX_catch_xAxisData;
         tx_catch_option.series[0].data = TX_catch_low_data;
     	tx_catch_option.series[1].data = TX_catch_median_data;
         tx_catch_option.series[2].data = TX_catch_high_data;
 		txCatchPlot.setOption(tx_catch_option);
-
+		
 		$.each(chartdata,function(index, el) {
         	TX_seas_xAxisData.push(el.year);
 			TX_seas_low_data.push(el.true_private_TX_season_length_025);
 			TX_seas_median_data.push(el.true_private_TX_season_length_median);
 			TX_seas_high_data.push(el.true_private_TX_season_length_975-el.true_private_TX_season_length_025);
 		});
-
+		
 		tx_season_option.xAxis.data = TX_seas_xAxisData;
         tx_season_option.series[0].data = TX_seas_low_data;
         tx_season_option.series[1].data = TX_seas_median_data;
@@ -3242,3 +3281,4 @@ function drawChart(chartdata){
 	}
 
 }
+
